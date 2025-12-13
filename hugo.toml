@@ -1,0 +1,65 @@
+baseurl = "https://www.glowisle.me/"
+title = "映屿"
+hasCJKLanguage = true
+enableRobotsTXT = true
+pagination.pagerSize = 5
+languageCode = "zh-CN"
+copyright = "Copyright © 2024, GlowIsle."
+
+[outputFormats]
+  [outputFormats.RSS]
+    baseName = "atom"  # 更改文件名（不带扩展名）
+    mediaType = "application/rss+xml"
+    isPlainText = true
+    rel = "alternate"
+    protocol = "http://"
+    path = ""  # 保持路径在根目录
+
+[markup]
+  [markup.highlight]
+    style = "onedark"
+
+[markup.goldmark.renderer]
+unsafe = true
+
+[taxonomies]
+    category = "categories"
+    tag = "tags"
+
+[menu]
+
+[[menu.main]]
+    name = "分类"
+    url = "/categories"
+    weight = 2
+
+[[menu.main]]
+    name = "友人"
+    url = "/links"
+    weight = 3
+
+[[menu.main]]
+    name = "归档"
+    url = "/archives"
+    weight = 4
+
+[[menu.main]]
+    name = "关于"
+    url = "/about"
+    weight = 5
+
+[params]
+	upvote = true
+    upvoteURL = "https://upvote.glowisle.me/"
+	description = "关于互联网、书籍、生活琐事以及那些一闪而过的念头。计算机技术 & 读书感悟 & 日常随笔。映屿(GlowIsle)"
+	postSearch = false
+	groupByYear = true
+	toc = true
+	showPostCount = true
+	favicon = "/favicon.png"
+    hideMadeWithLine = true
+    imageZoom = true
+
+  [params.author]
+    name = "五葉地錦"
+    email = "i@glowisle.me"

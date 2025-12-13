@@ -1,0 +1,245 @@
+---
+abbrlink: 1348465439
+categories:
+- 往昔
+date: "2025-03-04 20:58:30"
+tags:
+- Windows
+- Linux
+title: '【未解决】Windows WSL报错：Error: 0x80080005 ???????'
+---
+
+设备环境：
+```
+操作系统：Windows 10
+安装系统：Arch Linux
+错误日志：
+Installing, this may take a few minutes...
+WslRegisterDistribution failed with error: 0x80080005
+Error: 0x80080005 ???????
+
+Press any key to continue...
+```
+
+网上有一篇[文章](https://ask.csdn.net/questions/7625716)提到这个错误，下面的评论回复以管理员权限运行命令提示符并执行`sc stop LxssManager`和`sc start LxssManager`
+出现如下报错：
+
+
+```
+C:\Windows\system32>sc stop LxssManager
+[SC] OpenService 失败 1060:
+
+指定的服务未安装。
+```
+
+顺藤摸瓜，在网上寻找`LxssManager`这个服务要如何安装。
+网上暂时还没有找到相关文章能够解决这个问题，但是CSDN的一篇文章引起了我的注意
+[[SC] OpenService 失败：1060指定的服务未安装_[sc] openservice 失败 1060: 指定的服务未安装。-CSDN博客](https://blog.csdn.net/renwudao24/article/details/52061906)
+文章中提到了“服务”，在开始菜单中搜索服务，进入应用找到了一个名为WSL Service的服务。点左上角启动。
+提取关键信息：**1058、被禁用、关联的设备没有启动**。
+检查功能是否开启：按下 `Win+S` 搜索 **启用或关闭Windows功能**
+勾选`适用于Linux的Windows子系统`和`虚拟机平台`这两项，点击确定
+重启电脑。
+回来以后，用管理员身份运行powershell，强制重置WSL服务，依次执行：
+
+```bash
+wsl --shutdown
+wsl --unregister Arch # 替换为你的发行版名称
+wsl --install -d Arch # 重新注册发行版
+```
+
+如果提示内核缺失，在这里下<https://wslstorestorage.blob.core.windows.net/wslblob/wsl_update_x64.msi>
+
+如果有以下输出：
+
+```
+zcz  system32  ♥ 21:32  wsl --shutdown
+此应用程序需要适用于 Linux 的 Windows 子系统可选组件。
+通过运行安装它： wsl.exe --install --no-distribution
+可能需要重新启动系统才能使更改生效。
+错误代码: Wsl/WSL_E_WSL_OPTIONAL_COMPONENT_REQUIRED
+```
+
+两种可能：
+
+1. 没有安装WSL服务
+2. **服务被禁用**
+   后者比较棘手，我们先做第一种尝试
+   **强制安装WSL组件**
+   **以管理员身份运行 PowerShell**，执行以下命令：
+
+```bash
+# 安装WSL核心组件（会自动启用虚拟化功能）
+wsl --install
+```
+
+输出：
+
+```
+zcz  system32  ♥ 21:34  wsl --install
+正在安装 Windows 可选组件: Microsoft-Windows-Subsystem-Linux
+
+Deployment Image Servicing and Management tool
+Version: 10.0.19041.3636
+
+Image Version: 10.0.19045.5487
+
+启用一个或多个功能
+[==========================100.0%==========================]
+The operation completed successfully.
+正在安装 Windows 可选组件: VirtualMachinePlatform
+
+Deployment Image Servicing and Management tool
+Version: 10.0.19041.3636
+
+Image Version: 10.0.19045.5487
+
+启用一个或多个功能
+[==========================100.0%==========================]
+The operation completed successfully.
+请求的操作成功。直到重新启动系统前更改将不会生效。
+```
+
+再次进行重启。
+`Restart-Computer`
+开机加载界面显示：我们无法完成更新，正在撤销更改。。
+尝试过的方法：进入安全模式，尝试重启更新，失败。
+安全模式仍然失败，选择临时禁用WSL服务
+管理员cmd执行
+
+```powershell
+sc config LxssManager start= disabled
+shutdown /r /t 0
+```
+
+输出：
+
+```
+C:\Windows\system32>sc config LxssManager start= disabled&& shutdown /r /t 0
+[SC] OpenService 失败 1060:
+
+指定的服务未安装。
+```
+
+唉，老朋友，又见面了。只能祭出来我的终极大杀器。
+
+### **彻底重装WSL**
+
+```powershell
+# 卸载所有发行版
+wsl --unregister *
+# 删除残留配置
+Remove-Item -Path "$env:USERPROFILE\AppData\Local\Packages\*Linux*" -Recurse -Force
+```
+
+输出：
+
+```
+zcz  system32  ♥ 22:04  # 卸载所有发行版
+> wsl --unregister *
+> # 删除残留配置
+> Remove-Item -Path "$env:USERPROFILE\AppData\Local\Packages\*Linux*" -Recurse -Force
+正在注销。
+此应用程序需要适用于 Linux 的 Windows 子系统可选组件。
+通过运行安装它： wsl.exe --install --no-distribution
+可能需要重新启动系统才能使更改生效。
+错误代码: Wsl/WSL_E_WSL_OPTIONAL_COMPONENT_REQUIRED
+```
+
+输入`wsl.exe --install --no-distribution`
+输出：
+
+```
+zcz  system32  ♥ 22:09  wsl.exe --install --no-distribution
+正在安装 Windows 可选组件: Microsoft-Windows-Subsystem-Linux
+
+Deployment Image Servicing and Management tool
+Version: 10.0.19041.3636
+
+Image Version: 10.0.19045.5487
+
+启用一个或多个功能
+[==========================100.0%==========================]
+The operation completed successfully.
+正在安装 Windows 可选组件: VirtualMachinePlatform
+
+Deployment Image Servicing and Management tool
+Version: 10.0.19041.3636
+
+Image Version: 10.0.19045.5487
+
+启用一个或多个功能
+[==========================100.0%==========================]
+The operation completed successfully.
+请求的操作成功。直到重新启动系统前更改将不会生效。
+```
+
+继续重启，显示“我们无法完成更新，正在撤销更改。”
+
+**以管理员身份打开CMD**：
+按下 `Win+S` → 输入 `cmd` → 右键选择 **“以管理员身份运行”**  **执行以下命令（注意语法）**：
+
+```cmd
+sc config LxssManager start= auto
+sc config vmcompute start= auto
+net start LxssManager
+net start vmcompute
+```
+
+仍然1085，管理员cmd执行
+
+```
+dism /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux /all /norestart
+
+dism /online /enable-feature /featurename:VirtualMachinePlatform /all /norestart
+```
+
+尝试重装WSL，出现
+![[_posts\Windows-WSL报错：Error-0x80080005\Pasted image 20250304222548.png]]
+
+研究了一阵子，**`vmcompute`**（虚拟机核心服务）和 **`LxssManager`**（WSL管理服务）均未注册，导致WSL安装向导崩溃。
+
+```Powershell
+# 以管理员身份运行
+dism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux /all /norestart
+dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all /norestart
+dism.exe /online /enable-feature /featurename:HypervisorPlatform /all /norestart
+```
+
+重启，“我们无法完成更新，正在撤销更改。”
+。。。。。、、、、
+尽力了。现在看来，是系统层面的硬伤了。可能行得通的有重装系统和保留文件重置系统两个选择。不过我还是会和这个问题死磕一下，我就不信我干不成这个事。明天还要苦逼上学，先睡了。
+2025.3.4 22:57
+
+————————————————————————————
+
+2025.3.5
+
+尝试**强制修复系统核心组件**
+
+```
+# 以管理员身份运行 PowerShell
+sfc /scannow
+DISM /Online /Cleanup-Image /RestoreHealth
+```
+
+**重置 Windows Update 组件**
+
+```
+# 管理员cmd执行 net stop wuauserv
+net stop cryptSvc
+net stop bits
+net stop msiserver
+rmdir C:\Windows\SoftwareDistribution /S /Q
+net start wuauserv
+net start cryptSvc
+net start bits
+net start msiserver
+# 强制重建WSL核心服务
+sc create vmcompute binPath= "C:\Windows\System32\vmcompute.exe" start= auto type= kernel
+sc create LxssManager binPath= "C:\Windows\System32\lxss\LxssManager.dll" start= auto type= own
+net start vmcompute
+net start LxssManager
+```
+
+仍然无法启动。使用wsl偶遇神秘怪异bug拼尽全力无法战胜。我都已经浪费这么长时间来研究这个问题，为什么我不直接装个Linux系统呢。周末就把这傻卵系统换成Arch！

@@ -1,0 +1,55 @@
+{{ $pages := where site.RegularPages "Type" "in" site.Params.mainSections }} {{
+$recent := first 5 $pages.ByDate.Reverse }}
+<style>
+  .recent-list {
+    margin: 0;
+  }
+
+  .recent-item {
+    position: relative;
+    margin-bottom: 8px;
+    display: flex;
+    align-items: flex-start;
+  }
+
+  .item-link {
+    display: inline-block;
+    text-decoration: none;
+    margin-left: 10px;
+    flex: 1;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .post-date {
+    font-size: 0.9em;
+    color: #666;
+    display: inline-block;
+    min-width: 80px;
+    flex-shrink: 0;
+  }
+
+  .recent-empty {
+    text-align: center;
+    font-style: italic;
+  }
+</style>
+<div class="recent-posts">
+  {{ if $recent }}
+  <ul class="recent-list">
+    {{ range $index, $page := $recent }}
+    <li class="recent-item">
+      <span class="post-date">
+        <time datetime='{{ .Date.Format "2006-01-02" }}'>
+          {{ .Date.Format (default "2006-01-02" .Site.Params.dateFormat) }}
+        </time>
+      </span>
+      <a href="{{ .RelPermalink }}" class="item-link">{{ .Title }}</a>
+    </li>
+    {{ end }}
+  </ul>
+  {{ else }}
+  <p class="recent-empty">暂无文章</p>
+  {{ end }}
+</div>

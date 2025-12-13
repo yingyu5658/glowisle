@@ -1,0 +1,36 @@
+{{ define "main" }}
+<div class="taxonomy-term">
+  <h2>{{ .Title }}</h2>
+
+  <div class="posts-list">
+    {{ range .Pages }}
+
+    <li style="list-style-type: none; margin-bottom: 12px">
+      <span
+        class="post-date"
+        {{
+        if
+        .Site.Params.groupByYear
+        }}
+        grouped
+        {{
+        else
+        }}
+        ungrouped
+        {{
+        end
+        }}
+      >
+        <time datetime='{{ .Date.Format "2006-01-02" }}' pubdate>
+          {{ .Date.Format "2006-01-02" }}
+        </time>
+      </span>
+      <a href="{{ .Permalink }}">{{ .Title }}</a>
+    </li>
+
+    {{ else }}
+    <p>该分类下还没有文章。</p>
+    {{ end }}
+  </div>
+</div>
+{{ end }}
