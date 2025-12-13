@@ -6,7 +6,6 @@
 #wc -m)
 
 commit_date=$(date +"%Y-%m-%d %H:%M:%S")
-
     cd ~/blog/public || exit 1
     hugo --cleanDestinationDir --gc
     git add .
