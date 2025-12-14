@@ -20,6 +20,7 @@ type: no-comments
 | [龙场茶室](https://blog.peterchen97.cn/)     | -                                                  |
 | [太隐](https://wangyurui.com/)               | 一个人的思想发育史就是他的阅读史                   |
 | [辛未羊的网络日志](https://panqiincs.me/) | 记录生活和学习 |
+| [Doin的赛博空间](https://doin.pages.dev/) | 来自后玲音与爱丽丝时代的幻想。 |
 
 <!--
 
