@@ -6,8 +6,9 @@
 #wc -m)
 
 commit_date=$(date +"%Y-%m-%d %H:%M:%S")
-    cd ~/blog/public || exit 1
-    hugo --cleanDestinationDir --gc
-    git add .
-    git commit -m "auto update: $commit_date"
-    git push origin main
+cd ~/blog/
+hugo --cleanDestinationDir --gc
+cd ~/blog/public || exit 1
+git add .
+git commit -m "auto update: $commit_date"
+git push origin main
