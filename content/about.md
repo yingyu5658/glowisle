@@ -33,9 +33,21 @@ type: no-comments
 - 所有文章内容使用[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/)协议授权。
 - 目前文章字数：{{< word-count "posts" >}} 
 
-## 这个博客是如何搭建的
+## 订阅
 
-本博客使用快速、易用的静态博客生成程序 [Hugo](https://gohugo.io/)，在 [hugo-bearneo](https://github.com/rokcso/hugo-bearneo) 主题的基础上进行修改，静态文件托管在Github Pages，图床使用Cloudflare R2对象存储。我使用 Emacs 撰写文章，并推送到远程仓库构建部署。
+如果你喜欢我的文字，可以用以下链接订阅：
+
+- [订阅全部文章](https://www.glowisle.me/atom.xml/)
+
+- [订阅周刊](https://www.glowisle.me/categories/回声周刊/atom.xml)
+
+- [订阅Telegram频道的消息](https://channel.glowisle.me/rss.xml/)
+
+订阅某个分类：
+
+```
+https://www.glowisle.me/categories/分类名/atom.xml
+```
 
 ## 在哪找到我
 
@@ -44,16 +56,7 @@ type: no-comments
 - Mastodon: [c7.io/@Verdant](https://c7.io/@Verdant/)
 - Github: [Verdant](https://github.com/yingyu5658/)
 
-## 订阅
+## 鸣谢
 
-如果你喜欢我的文字，可以用以下链接订阅：
-
-```
-https://www.glowisle.me/atom.xml/
-```
-
-订阅Telegram频道的消息：
-
-```
-https://channel.glowisle.me/rss.xml/
-```
+- 本站样式基于 [Hugo Bear Neo](https://github.com/rokcso/hugo-bearneo/) 主题修改
+- 音乐卡片的修改自 [極客死亡計劃](https://github.com/BigCoke233/geek-death-project)
