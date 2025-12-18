@@ -1,74 +1,41 @@
-{{ $scratch := newScratch }}
-{{ if eq (.Get 0) "posts" }}
-  {{/* 统计所有博客文章 */}}
-  {{ range where site.RegularPages "Type" "in" (slice "posts" "jottings" "readings" "tech") }}
-    {{ $scratch.Add "wordcount" .WordCount }}
-  {{ end }}
-{{ else if eq (.Get 0) "all" }}
-  {{/* 统计所有内容 */}}
-  {{ range where site.RegularPages "Type" "in" (slice "posts" "about" "newsgroup" "links" "jottings" "readings" "tech") }}
-    {{ $scratch.Add "wordcount" .WordCount }}
-  {{ end }}
-{{ end }}
-
-{{ $count := $scratch.Get "wordcount" }}
-{{ if gt $count 0 }}
-  {{ $count }} 字，
-
-  {{/* 名著数据库（字数单位：汉字） */}}
-  {{ $classics := slice 
-    (dict "name" "红楼梦" "author" "曹雪芹" "country" "（中）" "words" 731017)
-    (dict "name" "源氏物语" "author" "紫式部" "country" "（日）" "words" 876000)
-    (dict "name" "假面的告白" "author" "三岛由纪夫" "country" "（日）" "words" 86000)
-    (dict "name" "金阁寺" "author" "三岛由纪夫" "country" "（日）" "words" 125000)
-    (dict "name" "了不起的盖茨比" "author" "菲茨杰拉德" "country" "（美）" "words" 49800)
-    (dict "name" "傲慢与偏见" "author" "简·奥斯汀" "country" "（英）" "words" 183000)
-    (dict "name" "呐喊" "author" "鲁迅" "country" "（中）" "words" 152000)
-    (dict "name" "罗生门" "author" "芥川龙之介" "country" "（日）" "words" 35800)
-    (dict "name" "老人与海" "author" "海明威" "country" "（美）" "words" 26800)
-    (dict "name" "简爱" "author" "夏洛蒂·勃朗特" "country" "（英）" "words" 322000)
-    (dict "name" "三国演义" "author" "罗贯中" "country" "（中）" "words" 640000)
-    (dict "name" "雪国" "author" "川端康成" "country" "（日）" "words" 78000)
-    (dict "name" "杀死一只知更鸟" "author" "哈珀·李" "country" "（美）" "words" 187000)
-    (dict "name" "1984" "author" "乔治·奥威尔" "country" "（英）" "words" 123000)
-    (dict "name" "围城" "author" "钱钟书" "country" "（中）" "words" 257000)
-    (dict "name" "我是猫" "author" "夏目漱石" "country" "（日）" "words" 402000)
-    (dict "name" "飘" "author" "玛格丽特·米切尔" "country" "（美）" "words" 802000)
-    (dict "name" "呼啸山庄" "author" "艾米莉·勃朗特" "country" "（英）" "words" 282000)
-  }}
-
-  {{/* 寻找最接近的名著 */}}
-  {{ $closest := dict "diff" 999999999 "book" (index $classics 0) }}
-  {{ range $book := $classics }}
-    {{ $ratio := div (float $count) $book.words }}
-    {{ if and (ge $ratio 0.8) (le $ratio 1.2) }}
-      {{ $diff := sub $ratio 1.0 }}
-      {{ if lt $diff 0 }}{{ $diff = mul $diff -1 }}{{ end }}
-      {{ if lt $diff $closest.diff }}
-        {{ $closest = dict "diff" $diff "book" $book }}
-      {{ end }}
-    {{ end }}
-  {{ end }}
-
-  {{/* 输出对比结果 */}}
-  {{ with $closest.book }}
-  约等于 《{{ .name }}》 的{{ div (float $count) .words | printf "%.1f" }}倍
-  {{ else }}
-    {{/* 未找到匹配时显示长度最接近的名著 */}}
-    {{ $closestBook := index $classics 0 }}
-    {{ $minDiff := sub $count $closestBook.words }}
-    {{ if lt $minDiff 0 }}{{ $minDiff = mul $minDiff -1 }}{{ end }}
-    {{ range $classics }}
-      {{ $currDiff := sub $count .words }}
-      {{ if lt $currDiff 0 }}{{ $currDiff = mul $currDiff -1 }}{{ end }}
-      {{ if lt $currDiff $minDiff }}
-        {{ $closestBook = . }}
-        {{ $minDiff = $currDiff }}
-      {{ end }}
-    {{ end }}
-    ≈ {{ $closestBook.name }}{{ div (float $count) $closestBook.words | printf "%.1f" }}倍
-  {{ end }}
-
-{{ else }}
-  0字
-{{ end }}
+{{ $scratch := newScratch }} {{ if eq (.Get 0) "posts" }} {{ range where
+site.RegularPages "Type" "in" (slice "posts" "jottings" "readings" "tech") }} {{
+if not (in .Params.categories "往昔") }} {{ $scratch.Add "wordcount" .WordCount
+}} {{ end }} {{ end }} {{ else if eq (.Get 0) "all" }} {{ range where
+site.RegularPages "Type" "in" (slice "posts" "about" "newsgroup" "links"
+"jottings" "readings" "tech") }} {{ if not (in .Params.categories "往昔") }} {{
+$scratch.Add "wordcount" .WordCount }} {{ end }} {{ end }} {{ end }} {{ $count
+:= $scratch.Get "wordcount" }} {{ if gt $count 0 }} {{ $count }} 字， {{/*
+名著数据库（字数单位：汉字） */}} {{ $classics := slice (dict "name" "红楼梦"
+"author" "曹雪芹" "country" "（中）" "words" 731017) (dict "name" "源氏物语"
+"author" "紫式部" "country" "（日）" "words" 876000) (dict "name" "假面的告白"
+"author" "三岛由纪夫" "country" "（日）" "words" 86000) (dict "name" "金阁寺"
+"author" "三岛由纪夫" "country" "（日）" "words" 125000) (dict "name"
+"了不起的盖茨比" "author" "菲茨杰拉德" "country" "（美）" "words" 49800) (dict
+"name" "傲慢与偏见" "author" "简·奥斯汀" "country" "（英）" "words" 183000)
+(dict "name" "呐喊" "author" "鲁迅" "country" "（中）" "words" 152000) (dict
+"name" "罗生门" "author" "芥川龙之介" "country" "（日）" "words" 35800) (dict
+"name" "老人与海" "author" "海明威" "country" "（美）" "words" 26800) (dict
+"name" "简爱" "author" "夏洛蒂·勃朗特" "country" "（英）" "words" 322000) (dict
+"name" "三国演义" "author" "罗贯中" "country" "（中）" "words" 640000) (dict
+"name" "雪国" "author" "川端康成" "country" "（日）" "words" 78000) (dict "name"
+"杀死一只知更鸟" "author" "哈珀·李" "country" "（美）" "words" 187000) (dict
+"name" "1984" "author" "乔治·奥威尔" "country" "（英）" "words" 123000) (dict
+"name" "围城" "author" "钱钟书" "country" "（中）" "words" 257000) (dict "name"
+"我是猫" "author" "夏目漱石" "country" "（日）" "words" 402000) (dict "name"
+"飘" "author" "玛格丽特·米切尔" "country" "（美）" "words" 802000) (dict "name"
+"呼啸山庄" "author" "艾米莉·勃朗特" "country" "（英）" "words" 282000) }} {{/*
+寻找最接近的名著 */}} {{ $closest := dict "diff" 999999999 "book" (index
+$classics 0) }} {{ range $book := $classics }} {{ $ratio := div (float $count)
+$book.words }} {{ if and (ge $ratio 0.8) (le $ratio 1.2) }} {{ $diff := sub
+$ratio 1.0 }} {{ if lt $diff 0 }}{{ $diff = mul $diff -1 }}{{ end }} {{ if lt
+$diff $closest.diff }} {{ $closest = dict "diff" $diff "book" $book }} {{ end }}
+{{ end }} {{ end }} {{/* 输出对比结果 */}} {{ with $closest.book }} 约等于 《{{
+.name }}》 的{{ div (float $count) .words | printf "%.1f" }}倍 {{ else }} {{/*
+未找到匹配时显示长度最接近的名著 */}} {{ $closestBook := index $classics 0 }} {{
+$minDiff := sub $count $closestBook.words }} {{ if lt $minDiff 0 }}{{ $minDiff =
+mul $minDiff -1 }}{{ end }} {{ range $classics }} {{ $currDiff := sub $count
+.words }} {{ if lt $currDiff 0 }}{{ $currDiff = mul $currDiff -1 }}{{ end }} {{
+if lt $currDiff $minDiff }} {{ $closestBook = . }} {{ $minDiff = $currDiff }} {{
+end }} {{ end }} ≈ {{ $closestBook.name }}{{ div (float $count)
+$closestBook.words | printf "%.1f" }}倍 {{ end }} {{ else }} 0字 {{ end }}
