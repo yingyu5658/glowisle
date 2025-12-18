@@ -59,4 +59,4 @@ https://www.glowisle.me/categories/分类名/atom.xml
 ## 鸣谢
 
 - 本站样式基于 [Hugo Bear Neo](https://github.com/rokcso/hugo-bearneo/) 主题修改
-- 音乐卡片的修改自 [極客死亡計劃](https://github.com/BigCoke233/geek-death-project)
+- 音乐卡片修改自 [極客死亡計劃](https://github.com/BigCoke233/geek-death-project)
