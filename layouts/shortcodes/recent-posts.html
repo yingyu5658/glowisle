@@ -1,5 +1,5 @@
 {{ $pages := where site.RegularPages "Type" "in" site.Params.mainSections }} {{
-$recent := first 5 $pages.ByDate.Reverse }}
+$recent := first 8 $pages.ByDate.Reverse }}
 <style>
   .recent-list {
     margin: 0;
@@ -15,7 +15,6 @@ $recent := first 5 $pages.ByDate.Reverse }}
   .item-link {
     display: inline-block;
     text-decoration: none;
-    margin-left: 10px;
     flex: 1;
     white-space: nowrap;
     overflow: hidden;
@@ -34,22 +33,30 @@ $recent := first 5 $pages.ByDate.Reverse }}
     text-align: center;
     font-style: italic;
   }
+
+  .recent-post-item {
+    margin-bottom: 1em;
+  }
+
+  .recent-post-title {
+    margin-top: 2px;
+  }
 </style>
 <div class="recent-posts">
-  {{ if $recent }}
-  <ul class="recent-list">
-    {{ range $index, $page := $recent }}
-    <li class="recent-item">
-      <span class="post-date">
-        <time datetime='{{ .Date.Format "2006-01-02" }}'>
-          {{ .Date.Format (default "2006-01-02" .Site.Params.dateFormat) }}
-        </time>
-      </span>
+  {{ if $recent }} {{ range $index, $page := $recent }}
+
+  <div class="recent-post-item">
+    <span class="post-date">
+      <time datetime='{{ .Date.Format "2006-01-02" }}'>
+        {{ .Date.Format (default "2006-01-02" .Site.Params.dateFormat) }}
+      </time>
+    </span>
+
+    <h3 class="recent-post-title">
       <a href="{{ .RelPermalink }}" class="item-link">{{ .Title }}</a>
-    </li>
-    {{ end }}
-  </ul>
-  {{ else }}
+    </h3>
+  </div>
+  {{ end }} {{ else }}
   <p class="recent-empty">暂无文章</p>
   {{ end }}
 </div>
