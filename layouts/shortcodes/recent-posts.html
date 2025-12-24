@@ -41,6 +41,30 @@ $recent := first 8 $pages.ByDate.Reverse }}
   .recent-post-title {
     margin-top: 2px;
   }
+
+  @media (max-width: 720px) {
+    .recent-post-item {
+      flex-direction: column; /* 改为上下排列 */
+      gap: 4px; /* 缩短日期和标题的间距 */
+      margin-bottom: 1.5em;
+    }
+
+    .post-date {
+      min-width: auto;
+      font-size: 0.85em;
+    }
+
+    .recent-post-title {
+      font-size: 1.05em;
+    }
+
+    .item-link {
+      white-space: normal; /* 允许换行 */
+      word-wrap: break-word; /* 强制长单词/链接换行 */
+      overflow: visible; /* 取消隐藏 */
+      text-overflow: clip; /* 取消省略号 */
+    }
+  }
 </style>
 <div class="recent-posts">
   {{ if $recent }} {{ range $index, $page := $recent }}
