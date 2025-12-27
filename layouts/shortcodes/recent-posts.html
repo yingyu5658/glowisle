@@ -1,8 +1,13 @@
-{{ $pages := where site.RegularPages "Type" "in" site.Params.mainSections }} {{
-$recent := first 8 $pages.ByDate.Reverse }}
+{{ $pages := where site.RegularPages "Type" "in" site.Params.mainSections }}
+{{ $recent := first 8 $pages.ByDate.Reverse }}
+
 <style>
   .recent-list {
     margin: 0;
+  }
+
+  .post-meta {
+    margin-bottom: 5px;
   }
 
   .recent-item {
@@ -29,25 +34,32 @@ $recent := first 8 $pages.ByDate.Reverse }}
     flex-shrink: 0;
   }
 
+  .category-link {
+    font-size: 0.9em;
+  }
+
   .recent-empty {
     text-align: center;
     font-style: italic;
   }
 
-  .recent-post-item {
-    margin-bottom: 1em;
+  .split {
+      margin: 0;
+      padding: 0;
+      display: inline;
+  }
+
+  .recent-posts-item {
+      margin-top: 0;
+      margin-bottom: 35px;
   }
 
   .recent-post-title {
-    margin-top: 2px;
+      margin-top: 2px;
+      margin-bottom: -10px;
   }
 
   @media (max-width: 720px) {
-    .recent-post-item {
-      flex-direction: column; /* 改为上下排列 */
-      gap: 4px; /* 缩短日期和标题的间距 */
-      margin-bottom: 1.5em;
-    }
 
     .post-date {
       min-width: auto;
@@ -58,7 +70,7 @@ $recent := first 8 $pages.ByDate.Reverse }}
       font-size: 1.05em;
     }
 
-    .item-link {
+        .item-link {
       white-space: normal; /* 允许换行 */
       word-wrap: break-word; /* 强制长单词/链接换行 */
       overflow: visible; /* 取消隐藏 */
@@ -66,21 +78,34 @@ $recent := first 8 $pages.ByDate.Reverse }}
     }
   }
 </style>
+
 <div class="recent-posts">
-  {{ if $recent }} {{ range $index, $page := $recent }}
+  {{ if $recent }}
+    {{ range $index, $page := $recent }}
+    <div class="recent-posts-item">
+        <h3 class="recent-post-title">
+            <a href="{{ .RelPermalink }}" class="item-link">{{ .Title }}</a>
+        </h3>
 
-  <div class="recent-post-item">
-    <span class="post-date">
-      <time datetime='{{ .Date.Format "2006-01-02" }}'>
-        {{ .Date.Format (default "2006-01-02" .Site.Params.dateFormat) }}
-      </time>
-    </span>
+        <div class="post-meta">
+            <span class="post-date">
+                <time datetime='{{ .Date.Format "Jan 02, 2006" }}'>{{- .Date.Format (default "Jan 02, 2006" .Site.Params.dateFormat) -}}•</time>
+            </span>
 
-    <h3 class="recent-post-title">
-      <a href="{{ .RelPermalink }}" class="item-link">{{ .Title }}</a>
-    </h3>
-  </div>
-  {{ end }} {{ else }}
-  <p class="recent-empty">暂无文章</p>
+            {{ with .Params.categories }}
+              {{ range . }}
+                {{ $category := . }}
+                {{ with $.Site.GetPage (printf "categories/%s" $category) }}
+                  <a href="{{ .Permalink }}" class="category-link">{{ .Title }}</a>
+                {{ else }}
+                  <a href="{{ "categories/" | relLangURL}}{{ $category | urlize}}" class="category-link">{{ $category }}</a>
+                {{ end }}
+              {{ end }}
+            {{ end }}
+        </div>
+    </div>
+    {{ end }}
+  {{ else }}
+    <div class="recent-empty">暂无文章</div>
   {{ end }}
 </div>

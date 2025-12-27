@@ -1,7 +1,7 @@
 <style>
   /* light theme */
   :root {
-    --width-max: 720px;
+    --width-max: 700px;
     --font-primary: "Noto Serif SC", "Source Han Serif SC", serif;
     --font-secondary: monospace;
     --font-size-primary: 1.105em;
@@ -36,8 +36,8 @@
 
   nav a,
   h1.post-title a,
-  .category-link,
-  .blog-posts li a {
+  .blog-posts li a,
+  a.category-link {
     text-decoration: none !important;
   }
 
@@ -45,6 +45,10 @@
   .post-title a:hover,
   a.item-link:hover,
   .blog-posts a:hover {
+    text-decoration: underline 0.5px !important;
+  }
+
+  a.category-link:hover {
     text-decoration: underline 0.5px !important;
   }
 
@@ -62,7 +66,7 @@
   }
 
   article p {
-    line-height: 40px;
+    line-height: 35px;
   }
 
   .item-link {
@@ -75,7 +79,7 @@
     margin-bottom: 3vh;
   }
   .category-link {
-    color: #999;
+    color: #444;
   }
 
   h1.post-title {
@@ -273,6 +277,10 @@
       --toc-hover-color: #cac3c3;
     }
 
+    .category-link {
+      color: #dbdbdb;
+    }
+
     .wm {
       background-color: #161b22;
       border-color: #30363d;
@@ -372,6 +380,11 @@
     border: 0;
   }
 
+  header {
+    margin-top: 30px;
+    margin-bottom: 30px;
+  }
+
   .title:hover {
     text-decoration: none;
   }
@@ -460,7 +473,7 @@
   time {
     font-family: var(--font-secondary);
     font-size: 15px;
-    color: rgb(163, 163, 163);
+    color: rgb(139, 139, 139);
   }
 
   code {

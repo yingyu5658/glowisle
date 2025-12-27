@@ -1,5 +1,5 @@
 baseurl = "https://www.glowisle.me/"
-title = "🎄 映屿"
+title = "映屿"
 hasCJKLanguage = true
 enableRobotsTXT = true
 pagination.pagerSize = 5
