@@ -54,7 +54,7 @@ unsafe = true
 	description = "关于互联网、书籍、生活琐事以及那些一闪而过的念头。计算机技术 & 读书感悟 & 日常随笔。映屿(GlowIsle)"
 	postSearch = false
 	groupByYear = true
-	toc = true
+	toc = false
 	showPostCount = true
 	favicon = "/favicon.png"
     hideMadeWithLine = true
@@ -63,3 +63,6 @@ unsafe = true
   [params.author]
     name = "五葉地錦"
     email = "i@glowisle.me"
+
+  [params.footer]
+    content = "© 2024 - 2025 | Made with ❤️ by Verdant"

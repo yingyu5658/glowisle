@@ -1,7 +1,8 @@
 ---
 date: "2025-06-07T13:08:07+08:00"
 title: 读书
-type: no-comments
+comment: false
+showMeta: false
 ---
 这里记录着我读过的书，有时候写写书评或读后感，你可以在[读书](/categories/读书/)页面查看所有与书籍有关的文章。
 

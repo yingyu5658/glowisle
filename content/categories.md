@@ -1,7 +1,10 @@
 ---
 type: no-comments
 title: 分类
+comments: false
+showMeta: false
 ---
+
 ### [💭 随笔](/categories/随笔)
 
 记录事情 | 抒发观点 | 发表议论

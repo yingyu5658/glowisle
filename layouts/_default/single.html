@@ -4,7 +4,7 @@
 
 <article class="h-entry">
     <h1 class="post-title p-name"><a href="{{ .RelPermalink }}" style="color:#222222;">{{ .Title }}</a></h1>
-
+{{ if ne (.Params.showMeta | default true) false }}
 <div class="post-info">
     <time class="post-date dt-published" datetime="{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}">
         {{ .Date.Format "2006年1月2日" }}
@@ -14,6 +14,7 @@
             <a href="{{ $url }}" class="category-link">{{ . }}</a>
         {{ end }}
 </div>
+{{ end }}
 <div class="e-content">
     {{ .Content }}
 </div>
@@ -135,6 +136,8 @@
 {{ $tocEnabled := default .Site.Params.toc .Params.toc }} {{ if $tocEnabled }}
 <div class="toc">{{ partial "toc.html" . }}</div>
 {{ end }}
+
+{{ if .Params.comments }}
 <hr />
 <details>
     <summary>
@@ -182,26 +185,10 @@
 
 
 
-    <script>
-		/*
-src="https://giscus.app/client.js"
-        data-repo="yingyu5658/yingyu5658.github.io"
-        data-repo-id="R_kgDOOBetsA"
-        data-category="Announcements"
-        data-category-id="DIC_kwDOOBetsM4CoF_Z"
-        data-mapping="title"
-        data-strict="0"
-        data-reactions-enabled="1"
-        data-emit-metadata="0"
-        data-input-position="bottom"
-        data-theme="dark"
-        data-lang="zh-CN"
-        crossorigin="anonymous"
-        async>
 
 
-*/
-    function getInitialTheme() {
+<script>
+function getInitialTheme() {
   // 1. 优先检查 localStorage 中的用户偏好
   if (typeof localStorage !== 'undefined' && localStorage.getItem('theme')) {
     return localStorage.getItem('theme');
@@ -234,6 +221,8 @@ giscusScript.crossOrigin = 'anonymous';
 giscusScript.async = true;
 
 document.getElementById('giscus-container').appendChild(giscusScript);
+
+
 
 document.addEventListener('DOMContentLoaded', function() {
     const form = document.getElementById('webmention-submit-form');
@@ -294,4 +283,5 @@ document.addEventListener('DOMContentLoaded', function() {
 
 </script>
 
+{{ end }}
 {{ end }}
