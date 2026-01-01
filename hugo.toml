@@ -1,4 +1,4 @@
-baseurl = "https://www.glowisle.me/"
+baseURL = "https://www.glowisle.me/"
 title = "映屿"
 hasCJKLanguage = true
 enableRobotsTXT = true
@@ -65,4 +65,4 @@ unsafe = true
     email = "i@glowisle.me"
 
   [params.footer]
-    content = "© 2024 - 2025 | Made with ❤️ by Verdant."
+    content = "© 2024 - 2026 | Made with ❤️ by Verdant."

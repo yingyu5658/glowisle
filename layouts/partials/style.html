@@ -1,5 +1,4 @@
 <style>
-  /* light theme */
   :root {
     --width-max: 700px;
     --font-primary: "Noto Serif SC", "Source Han Serif SC", serif;
@@ -126,16 +125,6 @@
     border: none !important;
   }
 
-  @media (prefers-color-scheme: dark) {
-    :root {
-      --music-bg-hover-dark: #525252; /* neutral-600 */
-      --music-bg-dark: rgba(82, 82, 82, 0.5); /* neutral-600/50 */
-      --music-text-secondary: #a3a3a3;
-    }
-  }
-
-  /* THIS SHIT MADE FROM LLM */
-
   /* --- 主容器 --- */
   /* flex flex-col gap-2 */
   .music-card {
@@ -222,16 +211,6 @@
     display: inline;
   }
 
-  /* --- 深色模式覆盖 --- */
-  @media (prefers-color-scheme: dark) {
-    .music-btn {
-      background-color: var(--music-bg-dark);
-    }
-    .music-btn:hover {
-      background-color: var(--music-bg-hover-dark);
-    }
-  }
-
   /* --- 桌面端/大屏适配 (Media Query: md / min-width: 768px) --- */
   @media (min-width: 768px) {
     /* 容器变为横向排列，两端对齐 */
@@ -265,6 +244,7 @@
     }
   }
 
+  /* 暗色模式 */
   @media (prefers-color-scheme: dark) {
     :root {
       --body-bg-color: #121212;
@@ -282,6 +262,16 @@
       --caption-text-color: #aaa;
       --toc-text-color: #373737;
       --toc-hover-color: #cac3c3;
+      --music-bg-hover-dark: #525252; /* neutral-600 */
+      --music-bg-dark: rgba(82, 82, 82, 0.5); /* neutral-600/50 */
+      --music-text-secondary: #a3a3a3;
+    }
+
+    .music-btn {
+      background-color: var(--music-bg-dark);
+    }
+    .music-btn:hover {
+      background-color: var(--music-bg-hover-dark);
     }
 
     .category-link {
