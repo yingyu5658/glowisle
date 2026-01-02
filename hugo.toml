@@ -30,7 +30,7 @@ unsafe = true
 
 [[menu.main]]
     name = "分类"
-    url = "/categories/随笔/"
+    url = "/categories/"
     weight = 2
 
 [[menu.main]]
