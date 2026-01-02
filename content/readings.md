@@ -69,7 +69,7 @@ showMeta: false
     cover="https://images.glowisle.me/s33316020.jpg"
 >}} 
 
-{{< booklist
+{{< book
     cover="https://images.glowisle.me/s24514468.jpg"
 >}} 
 
