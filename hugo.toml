@@ -30,23 +30,23 @@ unsafe = true
 
 [[menu.main]]
     name = "分类"
-    url = "/categories"
+    url = "/categories/随笔/"
     weight = 2
-
-[[menu.main]]
-    name = "友人"
-    url = "/links"
-    weight = 3
 
 [[menu.main]]
     name = "归档"
     url = "/archives"
-    weight = 4
+    weight = 3
+
+[[menu.main]]
+    name = "书单"
+    url = "/readings"
+    weight = 3
 
 [[menu.main]]
     name = "关于"
     url = "/about"
-    weight = 5
+    weight = 6
 
 [params]
 	upvote = true
