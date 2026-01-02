@@ -1,52 +1,93 @@
 ---
 date: "2025-06-07T13:08:07+08:00"
-title: 读书
+title: 书单
 comment: false
 showMeta: false
 ---
-这里记录着我读过的书，有时候写写书评或读后感，你可以在[读书](/categories/读书/)页面查看所有与书籍有关的文章。
 
-- 「⭐」表示我很喜欢的书籍
-- 「⚪」表示我觉得还可以的书籍
-- 「❌」表示我不太推荐的书籍
+这里记录着我读过的书。
 
-## 2025
+2025年比较懒，我会努力为2026年读过的每一本书都写书评的！
 
-### ✅读完
 
-- ⚪ 《白夜行》 东野圭吾 / 日本 
-- ❌ 《解忧杂货店》 东野圭吾 / 日本
-- ⚪ 《金色夜叉》 尾崎红叶 / 日本
-- ⚪ 《仲夏之死》 三岛由纪夫 / 日本
-- ⚪ 《潮骚》 三岛由纪夫 / 日本
-- ⭐ 《金阁寺》 三岛由纪夫 / 日本
-- ⭐ [《伊豆的舞女》](/posts/izu-no-odoriko/) 川端康成 / 日本
-- ⭐ 《雪国》 川端康成 / 日本
-- ⭐ [《三岛由纪夫传》](/posts/yukio-mishima/) 约翰·内森 / 美国
-- ⭐ 《活着》 余华 / 中国
-- ⚪ 《变形记》 弗兰兹·卡夫卡 / 奥地利
-- ⭐ [《春雪》](/tags/%E6%98%A5%E9%9B%AA/) 三岛由纪夫 / 日本
-- ⭐ [《奔马》](/posts/honba-mishima-yukio/) 三岛由纪夫 / 日本
-- ⚪《思考的乐趣》 顾森 / 中国
-- ⭐ 《且听风吟》 村上春树 / 日本
+## 2025（14本）
 
-### 🔆想读
+<div class="booklist">
+{{< book
+    cover="https://images.glowisle.me/s34611523.jpg"
+>}} 
 
-- 《中国印刷设计史》 安宝江、张馥玫 / 中国
-- 《西西弗神话》 阿尔贝·加缪 / 法国
-~~- 《悉达多》 赫尔曼·黑塞 / 德国~~
-- 《数学之美》吴军 / 中国印刷设计史
-- 《红岩》罗广斌、杨益言 / 中国
-- 《如何阅读一本书》莫提默·J. 艾德勒、查尔斯·范多伦 / 美国
-- 《堂吉诃德》塞万提斯·萨维德拉 / 西班牙
-- 《人生海海》 麦家 / 中国
+{{< book
+    cover="https://images.glowisle.me/s10323913.jpg"
+>}}
 
----
+{{< book
+    cover="https://images.glowisle.me/s29396368.jpg"
+>}} 
+
+{{< book
+    cover="https://images.glowisle.me/s33832856.jpg"
+    url="/posts/honba-mishima-yukio/"
+>}} 
+
+{{< book
+    cover="https://images.glowisle.me/s33832855.jpg"
+    url="/posts/spring-snow-mishima-yukio/"
+>}} 
+
+{{< book
+    cover="https://images.glowisle.me/s33679379.jpg"
+    url="/posts/yukio-mishima/"
+>}} 
+
+{{< book
+    cover="https://images.glowisle.me/s34500921.jpg"
+>}} 
+
+{{< book
+    cover="https://images.glowisle.me/s34501530.jpg"
+    url="/posts/izu-no-odoriko/"
+>}} 
+
+{{< book
+    cover="https://images.glowisle.me/s33832309.jpg"
+>}} 
+
+{{< book
+    cover="https://images.glowisle.me/s33832859.jpg"
+>}} 
+
+{{< book
+    cover="https://images.glowisle.me/s33832854.jpg"
+>}} 
+
+{{< book
+    cover="https://images.glowisle.me/s27264181.jpg"
+>}} 
+
+{{< book
+    cover="https://images.glowisle.me/s33316020.jpg"
+>}} 
+
+{{< booklist
+    cover="https://images.glowisle.me/s24514468.jpg"
+>}} 
+
+</div>
 
 ## 2024（3 本）
 
-### ✅读完
+<div class="booklist">
 
-- ⚪ 《朝花夕拾》 鲁迅 / 中国
-- ⚪ 《西游记》 吴承恩 / 中国
-- ⚪ 《骆驼祥子》 老舍 / 中国
+{{< book
+    cover="https://images.glowisle.me/s34099290.jpg"
+>}} 
+
+{{< book
+    cover="https://images.glowisle.me/s1627374.jpg"
+>}} 
+
+{{< book
+    cover="https://images.glowisle.me/s4226891.jpg"
+>}} 
+</div>

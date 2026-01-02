@@ -1,0 +1,10 @@
+
+<div class="booklist-item">
+  {{ if .Get "url" }}
+    <a href="{{ .Get "url" }}">
+      <img class="book-cover" src="{{ .Get "cover" }}" alt="图书封面" />
+    </a>
+  {{ else }}
+    <img class="book-cover" src="{{ .Get "cover" }}" alt="图书封面" />
+  {{ end }}
+</div>
