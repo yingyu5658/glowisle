@@ -39,9 +39,7 @@ showMeta: false
 如果你喜欢我的文字，可以用以下链接订阅：
 
 - [订阅全部文章](https://www.glowisle.me/atom.xml/)
-
 - [订阅周刊](https://www.glowisle.me/categories/回声周刊/atom.xml)
-
 - [订阅Telegram频道的消息](https://channel.glowisle.me/rss.xml/)
 
 订阅某个分类：
