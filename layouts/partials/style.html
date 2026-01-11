@@ -16,7 +16,7 @@
     --code-bg-color: #f2f2f2;
     --code-text-color: #222;
     --blockquote-border-color: #666;
-    --blockquote-text-color: #666;
+    --blockquote-text-color: #8c8c8c;
     --upvoted-color: #fa8072;
     --caption-text-color: #666;
     --toc-text-color: #e5e5e5;
@@ -95,8 +95,9 @@
   }
 
   article p {
-    line-height: 40px;
+    line-height: 35px;
     margin-top: 20px;
+    font-weight: 550;
   }
 
   .item-link {
@@ -289,10 +290,15 @@
       --music-bg-hover-dark: #525252; /* neutral-600 */
       --music-bg-dark: rgba(82, 82, 82, 0.5); /* neutral-600/50 */
       --music-text-secondary: #a3a3a3;
+      --color-background: var(--body-bg-color) !important;
     }
 
     blockquote strong {
       font-weight: 600;
+    }
+
+    article p {
+      font-weight: 400;
     }
 
     .music-btn {
@@ -526,16 +532,12 @@
   }
 
   blockquote {
-    border-left: 4px solid var(--blockquote-border-color);
+    /* border-left: 4px solid var(--blockquote-border-color); */
     color: var(--blockquote-text-color);
     margin: 0;
     margin-top: 17px;
-    padding-left: 16px;
+    padding-left: 20px;
     font-style: normal;
-  }
-
-  blockquote p {
-    margin: 0;
   }
 
   footer {
