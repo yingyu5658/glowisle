@@ -1,1 +1,3 @@
-{{ define "main" }} {{ .Content }} {{ end }}
+{{ define "main" }}
+<header>{{- partial "header.html" . -}}</header>
+{{ .Content }} {{ end }}

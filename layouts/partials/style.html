@@ -27,6 +27,23 @@
     --music-text-secondary: #666;
     --music-shadow:
       0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    --summary-text-color: #4e4e4e;
+  }
+
+  div.summary a,
+  div.summary strong,
+  div.summary p {
+    color: var(--summary-text-color) !important;
+  }
+
+  .social-icons {
+    margin: 15px;
+    margin-top: 5px;
+    text-align: center;
+  }
+
+  .social-icons a {
+    padding: 5px 5px;
   }
 
   .booklist {
@@ -52,7 +69,7 @@
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
   }
 
-  .social-icons {
+  .rss-icon {
     display: inline;
     font-size: 16px;
     float: right;
@@ -272,6 +289,7 @@
   /* 暗色模式 */
   @media (prefers-color-scheme: dark) {
     :root {
+      --summary-text-color: #b4b4b4;
       --body-bg-color: #121212;
       --bold-text-color: #eee;
       --body-text-color: #ddd;
@@ -293,8 +311,12 @@
       --color-background: var(--body-bg-color) !important;
     }
 
-    blockquote strong {
-      font-weight: 600;
+    div.summary a {
+      text-decoration: underline 0.2px #6f6f6f;
+    }
+
+    strong {
+      font-weight: 650;
     }
 
     article p {
@@ -385,12 +407,12 @@
     color: var(--bold-text-color);
   }
 
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
+  article h1,
+  article h2,
+  article h3,
+  article h4,
+  article h5,
+  article h6 {
     margin: 16px 0;
   }
 
@@ -407,13 +429,17 @@
   }
 
   .title {
-    text-decoration: none;
-    border: 0;
+    text-align: center;
+    text-decoration: none !important;
+  }
+
+  a.title h1 {
+    margin: 15px;
+    margin-bottom: 15px;
   }
 
   header {
     margin-top: 30px;
-    margin-bottom: 30px;
   }
 
   .title:hover {
@@ -425,7 +451,8 @@
   }
 
   nav {
-    margin-bottom: 15px;
+    text-align: center;
+    margin-bottom: 20px;
   }
 
   nav a {
