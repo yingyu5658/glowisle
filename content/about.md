@@ -34,20 +34,6 @@ showMeta: false
 - 所有文章内容使用[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/)协议授权。
 - 目前文章字数：{{< word-count "posts" >}} 
 
-## 订阅
-
-如果你喜欢我的文字，可以用以下链接订阅：
-
-- [订阅全部文章](https://www.glowisle.me/atom.xml/)
-- [订阅周刊](https://www.glowisle.me/categories/回声周刊/atom.xml)
-- [订阅Telegram频道的消息](https://channel.glowisle.me/rss.xml/)
-
-订阅某个分类：
-
-```
-https://www.glowisle.me/categories/分类名/atom.xml
-```
-
 ## 在哪找到我
 
 - Email: [i@glowisle.me](mailto:i@glowisle.me/)
