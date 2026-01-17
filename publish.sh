@@ -1,5 +1,7 @@
 #!/bin/sh
 
+rm .hugo_build.lock
+
 # 执行 Hugo 构建和部署
 commit_date=$(date +"%Y-%m-%d %H:%M:%S")
 cd ~/blog/

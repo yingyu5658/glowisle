@@ -9,6 +9,14 @@ showMeta: false
 
 2025年比较懒，我会努力为2026年读过的每一本书都写书评的！
 
+## 2026
+
+<div class="booklist">
+{{<book 
+    cover="https://images.glowisle.me/158170a83c-a618-46be-b764-35839a5f36c1.jpg"
+    url="/posts/hitori-biyori"
+>}}
+</div>
 
 ## 2025（14本）
 
@@ -89,5 +97,5 @@ showMeta: false
 
 {{< book
     cover="https://images.glowisle.me/s4226891.jpg"
->}} 
+>}}
 </div>
