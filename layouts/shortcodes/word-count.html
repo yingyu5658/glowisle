@@ -1,9 +1,9 @@
 {{ $scratch := newScratch }} {{ if eq (.Get 0) "posts" }} {{ range where
 site.RegularPages "Type" "in" (slice "posts" "jottings" "readings" "tech") }} {{
-if not (in .Params.categories "往昔") }} {{ $scratch.Add "wordcount" .WordCount
+if not (in .Params.categories "！往昔！") }} {{ $scratch.Add "wordcount" .WordCount
 }} {{ end }} {{ end }} {{ else if eq (.Get 0) "all" }} {{ range where
 site.RegularPages "Type" "in" (slice "posts" "about" "newsgroup" "links"
-"jottings" "readings" "tech") }} {{ if not (in .Params.categories "往昔") }} {{
+"jottings" "readings" "tech") }} {{ if not (in .Params.categories "！往昔") }} {{
 $scratch.Add "wordcount" .WordCount }} {{ end }} {{ end }} {{ end }} {{ $count
 := $scratch.Get "wordcount" }} {{ if gt $count 0 }} {{ $count }} 字， {{/*
 名著数据库（字数单位：汉字） */}} {{ $classics := slice (dict "name" "红楼梦"
