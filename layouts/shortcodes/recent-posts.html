@@ -1,120 +1,24 @@
 {{ $pages := where site.RegularPages "Type" "in" site.Params.mainSections }} {{
-$recent := first 8 $pages.ByDate.Reverse }}
+$recent := first 5 $pages.ByDate.Reverse }}
 
 <style>
-
-hr.item-split {
-    margin-bottom: 10px;
-    margin-top: 10px;
+.item-link {
+word-wrap: break-word;
+  white-space: normal;
  }
-
- p {
-    line-height: 35px;
- }
-
-  .recent-list {
-    margin: 0;
-  }
-
-  .post-meta {
-    margin-bottom: 5px;
-  }
-
-  .recent-item {
-    position: relative;
-    margin-bottom: 8px;
-    display: flex;
-    align-items: flex-start;
-  }
-
-  .item-link {
-    display: inline-block;
-    text-decoration: none;
-    flex: 1;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-  }
-
-  .post-date {
-    font-size: 0.9em;
-    color: #666;
-    display: inline-block;
-    min-width: 80px;
-    flex-shrink: 0;
-  }
-
-  .category-link {
-    font-size: 0.9em;
-  }
-
-  .recent-empty {
-    text-align: center;
-    font-style: italic;
-  }
-
-  .split {
-    margin: 0;
-    padding: 0;
-    display: inline;
-  }
-
-  .recent-posts-item {
-    margin-top: 0;
-    margin-bottom: 0;
-  }
-
-  .recent-post-title {
-    margin-top: 2px;
-    margin-bottom: -10px;
-  }
-
-  @media (max-width: 720px) {
-    .post-date {
-      min-width: auto;
-      font-size: 0.85em;
-    }
-
-    .recent-post-title {
-      font-size: 1.05em;
-    }
-
-    .item-link {
-      white-space: normal; /* 允许换行 */
-      word-wrap: break-word; /* 强制长单词/链接换行 */
-      overflow: visible; /* 取消隐藏 */
-      text-overflow: clip; /* 取消省略号 */
-    }
-  }
 </style>
 
 <div class="recent-posts">
   {{ if $recent }} {{ range $index, $page := $recent }}
-        <div class="post-meta">
-            <span class="post-date">
-                <time datetime='{{ .Date.Format "Jan 02, 2006" }}'>{{- .Date.Format (default "Jan 02, 2006" .Site.Params.dateFormat) -}}·</time>
-            </span>
-
-            {{ with .Params.categories }}
-              {{ range . }}
-                {{ $category := . }}
-                {{ with $.Site.GetPage (printf "categories/%s" $category) }}
-                  <a href="{{ .Permalink }}" class="category-link">{{ .Title }}</a>
-                {{ else }}
-                  <a href="{{ "categories/" | relLangURL}}{{ $category | urlize}}" class="category-link">{{ $category }}</a>
-                {{ end }}
-              {{ end }}
-            {{ end }}
-        </div>
   <div class="recent-posts-item">
     <h3 class="recent-post-title">
       <a href="{{ .RelPermalink }}" class="item-link">{{ .Title }}</a>
     </h3>
+    <div class="summary">{{ .Summary }}</div>
 
-      <div class="summary">{{ .Summary }}</div>
-  </div>
-  <hr class="item-split">
-  {{ end }} {{ else }}
+    {{ partial "post_meta.html" . }}
+
+  {{ if not (eq (add $index 1) (len $recent)) }} {{ end }} {{ end }} {{ else }}
   <div class="recent-empty">暂无文章</div>
   {{ end }}
 </div>
