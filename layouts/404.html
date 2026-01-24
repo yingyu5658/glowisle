@@ -1,4 +1,29 @@
 {{ define "title" }}404{{ end }} {{ define "main" }}
-<h1>404</h1>
-<p>你似乎来到了无人的岛屿。</p>
+<style>
+footer{display:none}
+.not-found {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.not-found * {
+    margin: 2rem;
+    line-height: 0;
+ }
+
+ h1 {
+     padding-bottom: 0.45em;
+     font-size: 5rem;
+ }
+
+</style>
+<div class="not-found">
+    <h1>🏝️</h1>
+    <h3>OHHHHH~
+    </h3>
+    <h3>Who lives in a pineapple under the sea?</h3>
+</div>
 {{ end }}
