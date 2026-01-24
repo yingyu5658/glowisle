@@ -1,4 +1,5 @@
 {{ define "main" }}
+<header>{{- partial "header.html" . -}}</header>
 <content>
   {{ if .Site.Params.postSearch }}
   <input
@@ -58,9 +59,10 @@
       }
     });
   </script>
-  {{ end }} {{ $allPosts := where .Site.RegularPages "Type" "eq" "posts" }} {{
-  $excludePosts := where $allPosts "Params.categories" "intersect" (slice
-  "往昔") }} {{ $postPages := $allPosts | complement $excludePosts }} {{ if
+  {{ end }} {{ $allPosts := where .Site.RegularPages "Type" "eq" "posts" }}
+  {{ $excludePosts := where $allPosts "Params.categories" "intersect" (slice "1") }}
+
+  {{ $postPages := $allPosts | complement $excludePosts }} {{ if
   .Site.Params.showPostCount }}
   <p id="post-count">共有 {{ len $postPages }} 篇文章</p>
   {{ end }}
