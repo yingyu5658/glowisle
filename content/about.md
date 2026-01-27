@@ -47,7 +47,7 @@ showMeta: false
 
 ### 软件
 
-- GNU/Linux Debian12 —— 我喜欢稳定的东西
+- Debian GNU/Linux —— 我喜欢稳定的东西
 - Windows 11 —— 我有两块硬盘，装了双系统，用来处理一些学校的麻烦事
 - Emacs —— 写代码
 - Emacs —— 邮件管理
