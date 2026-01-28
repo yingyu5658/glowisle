@@ -136,7 +136,9 @@
 <!-- Place the TOC at the end to ensure the article content loads first. -->
 {{ $tocEnabled := default .Site.Params.toc .Params.toc }} {{ if $tocEnabled }}
 <div class="toc">{{ partial "toc.html" . }}</div>
-{{ end }} {{ if .Params.comments | default true}}
+{{ end }}
+
+{{ if .Params.comments | default true }}
 <div class="comments-and-webmentions">
   <details>
     <summary>
