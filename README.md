@@ -7,8 +7,6 @@
 
 - 详情: [关于页面](https://www.glowisle.me/about)。
 
-- Telegram频道: [🌊 央山常量池](https://t.me/glowisle/)
-
 ---
 
 博客源码使用 GPL-2.0 协议授权 | 文章内容使用 CC BY-NC-SA 4.0 协议授权
