@@ -137,7 +137,7 @@
      --font-secondary: monospace;
      --font-size-primary: 1.15rem;
      --font-size-secondary: 1rem;
-     --body-bg-color: #fffaed;
+     --body-bg-color: #ffffff;
      --bold-text-color: #222;
      --body-text-color: #444;
      --link-color: #222;
@@ -541,17 +541,20 @@
  }
 
  .title {
-     text-align: center;
+     text-align: left;
      text-decoration: none !important;
  }
 
  a.title h1 {
      margin: 15px;
-     margin-bottom: 15px;
+     margin-left: 0;
+     font-size: 2.15em;
  }
 
  header {
      margin-top: 30px;
+     margin-bottom: 4vh;
+    
  }
 
  .title:hover {
@@ -563,7 +566,7 @@
  }
 
  nav {
-     text-align: center;
+     text-align: left;
      margin-bottom: 20px;
  }
 
@@ -775,7 +778,7 @@
      max-width: 100%; /* 限制最大宽度 */
  }
 
- .toc-nav:hover a {
+ .toc-nav a {
      color: var(--toc-text-color); /* hover时显示文字颜色 */
  }
 
@@ -803,8 +806,8 @@
      margin-right: 20px; /* 调整右外边距，使其与默认 a::before 占据的总宽度一致 (8px + 16px = 24px) */
  }
 
- .toc-nav a.active, /* 活跃状态和鼠标悬停状态的目录链接样式 */
- .toc-nav a:hover {
+ .toc-nav a, /* 活跃状态和鼠标悬停状态的目录链接样式 */
+ .toc-nav a {
      text-decoration: none; /* 无下划线 */
      color: var(--toc-hover-color); /* 文字颜色变为深灰色 */
  }
