@@ -15,36 +15,26 @@ copyright = "Copyright © 2024, GlowIsle."
     protocol = "http://"
     path = ""  # 保持路径在根目录
 
-[markup]
-  defaultMarkdownHandler = "goldmark"
-  [markup.highlight]
-    codeFences = true
-    guessSyntax = true
-    lineNos = true
-    lineNumbersInTable = true
-    noClasses = false
-    style = "onedark"
-    tabWidth = 4
 
-  [markup.goldmark]
-    [markup.goldmark.extensions]
-      definitionList = true
-      footnote = true
-      linkify = true
-      strikethrough = true
-      table = true
-      taskList = true
-      typographer = true
+[markup.goldmark.renderer]
+unsafe = true
 
-    [markup.goldmark.parser]
-      attribute = true
-      autoHeadingID = true
-      autoHeadingIDType = "github"
+[markup.goldmark.parser]
+  [markup.goldmark.parser.attribute]
+  block = true
+  title = true
+  wrapStandAloneImageWithinParagraph = false
 
-    [markup.goldmark.renderer]
-      unsafe = true
-      hardWraps = false
-      xHTML = false
+[markup.goldmark.extensions]
+  [markup.goldmark.extensions.extras]
+    [markup.goldmark.extensions.extras.mark]
+    enable = true
+
+[markup.highlight]
+guessSyntax = true
+noClasses = true
+style = "evergarden"
+tabWidth = 4
 
 [taxonomies]
     category = "categories"
