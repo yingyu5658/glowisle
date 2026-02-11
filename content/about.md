@@ -62,7 +62,7 @@ showMeta: false
 ## 联系
 
 - 发送一封[邮件](mailto:i@glowisle.me/)
-- 在[Mastodon](https://c7.io/@Verdant/)上关注我
+- 在[Fediverse](https://akk.glowisle.me/verdant/)上关注我
 - 看看我在[Github](https://github.com/yingyu5658/)上的活动
 
 我的GPG指纹是：`0EC60556CB1A0C66952874979B61DC57FAE3B8DC`，你可以在[这里](https://www.glowisle.me/pubkey.asc)下载我的公钥。
