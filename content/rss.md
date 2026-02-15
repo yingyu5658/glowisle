@@ -22,15 +22,3 @@ https://www.glowisle.me/categories/回声周刊/atom.xml
 ```
 https://www.glowisle.me/categories/分类名/atom.xml
 ```
-
-## 订阅Mastodon的嘟文
-
-```
-https://c7.io/@Verdant.rss
-```
-
-## 订阅Telegram频道消息
-
-```
-https://channel.glowisle.me/rss.xml/
-```
