@@ -306,5 +306,14 @@
       </div>
     </div>
   </details>
+
+  {{ if not .Params.comments }}
+  {{ with .Params.reason }}
+  <div class="reason">
+    <p>评论区已关闭。</p>
+    <strong>{{ . | markdownify }}</strong>
+  </div>
+  {{ end }}
+  {{ end }}
 </div>
 {{ end }}
