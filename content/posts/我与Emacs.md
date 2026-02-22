@@ -7,6 +7,7 @@ categories:
 tags:
 - "GNU/Linux"
 - "Emacs"
+- "杂谈"
 draft: false
 comments: true
 ---
