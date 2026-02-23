@@ -15,7 +15,6 @@ copyright = "Copyright © 2024, GlowIsle."
     protocol = "http://"
     path = ""  # 保持路径在根目录
 
-
 [markup.goldmark.renderer]
 unsafe = true
 

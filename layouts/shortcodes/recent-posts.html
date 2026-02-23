@@ -11,9 +11,9 @@ word-wrap: break-word;
 <div class="recent-posts">
   {{ if $recent }} {{ range $index, $page := $recent }}
   <div class="recent-posts-item">
-    <h3 class="recent-post-title">
+    <h2 class="recent-post-title post-title">
       <a href="{{ .RelPermalink }}" class="item-link">{{ .Title }}</a>
-    </h3>
+    </h2>
     <div class="summary">{{ .Summary }}</div>
 
     {{ partial "post_meta.html" . }}
