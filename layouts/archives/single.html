@@ -1,96 +1,42 @@
 {{ define "main" }}
 <header>{{- partial "header.html" . -}}</header>
 <content>
-  {{ if .Site.Params.postSearch }}
-  <input
-    id="search-input"
-    type="text"
-    placeholder="搜索文章..."
-    style="margin-top: 16px"
-  />
-  <script>
-    document.addEventListener('DOMContentLoaded', function () {
-      const searchInput = document.getElementById('search-input');
-      const posts = document.querySelectorAll('.blog-posts li');
-      const years = document.querySelectorAll('.blog-posts h3');
-
-      function updateSearchResults(searchTerm) {
-        let visiblePosts = 0;
-        const displayedYears = new Set();
-
-        posts.forEach(function (post) {
-          const titleLink = post.querySelector('a');
-          const timeElement = post.querySelector('time');
-
-          if (titleLink && timeElement) {
-            const title = titleLink.textContent.toLowerCase();
-            const year = timeElement.getAttribute('datetime').split('-')[0];
-
-            if (title.includes(searchTerm)) {
-              post.style.display = '';
-              visiblePosts++;
-              displayedYears.add(year);
-            } else {
-              post.style.display = 'none';
-            }
-          }
-        });
-
-        {{ if .Site.Params.groupByYear }}
-        years.forEach(function (y) {
-          const year = y.textContent;
-          y.style.display = displayedYears.has(year) ? '' : 'none';
-        });
-        {{ end }}
-
-        {{ if .Site.Params.showPostCount }}
-        const countText = `找到 ${visiblePosts} 篇文章`;
-        const countElement = document.getElementById('post-count');
-        if (countElement) {
-          countElement.innerHTML = countText;
-        }
-        {{ end }}
-      }
-
-      if (searchInput) {
-        searchInput.addEventListener('input', function () {
-          updateSearchResults(this.value.toLowerCase().trim());
-        });
-      }
-    });
-  </script>
-  {{ end }} {{ $allPosts := where .Site.RegularPages "Type" "eq" "posts" }}
+  {{ $allPosts := where .Site.RegularPages "Type" "eq" "posts" }}
   {{ $excludePosts := where $allPosts "Params.categories" "intersect" (slice "1") }}
+  {{ $postPages := $allPosts | complement $excludePosts }}
 
-  {{ $postPages := $allPosts | complement $excludePosts }} {{ if
-  .Site.Params.showPostCount }}
-  <p id="post-count">共有 {{ len $postPages }} 篇文章</p>
+  {{ if .Site.Params.showPostCount }}
+  <p id="post-count">共 {{ len $postPages }} 篇文章</p>
   {{ end }}
 
-  <ul class="blog-posts">
-    {{ if gt (len $postPages) 0 }} {{ $pagesToShow := $postPages.ByDate.Reverse
-    }} {{ $currentYear := 0 }} {{ range $pagesToShow }} {{ if .Date }} {{ $year
-    := .Date.Year }} {{ if and (.Site.Params.groupByYear) (ne $year
-    $currentYear) }}
-    <h3>{{ $year }}</h3>
-    {{ $currentYear = $year }} {{ end }} {{ end }}
-
-    <li>
-      <span
-        class="{{ if .Site.Params.groupByYear }}grouped{{else}}ungrouped{{end}}"
-      >
-        <i>
-          <time datetime='{{ .Date.Format "2006-01-02" }}' pubdate>
-            {{ .Date.Format (default "2006-01-02" .Site.Params.dateFormat) }}
-          </time>
-        </i>
-      </span>
-      <a href="{{ .Permalink }}">{{ .Title }}</a>
-    </li>
-    {{ end }} {{ else }}
-    <li>暂无文章</li>
+  <div class="blog-posts">
+    {{ if gt (len $postPages) 0 }}
+      {{ range $postPages.GroupByDate "2006" }}
+      <details>
+        <summary>
+          <p style="display: inline;">{{ .Key }} 年 ({{ len .Pages }})</p>
+        </summary>
+        
+        <ul>
+          {{ range .Pages }}
+          <li>
+            <span>
+              <i>
+                <time datetime='{{ .Date.Format "2006-01-02" }}' pubdate>
+                  {{ .Date.Format (default "2006-01-02" $.Site.Params.dateFormat) }}
+                </time>
+              </i>
+            </span>
+            <a href="{{ .Permalink }}">{{ .Title }}</a>
+          </li>
+          {{ end }}
+        </ul>
+      </details>
+      {{ end }}
+    {{ else }}
+      <p>暂无文章</p>
     {{ end }}
-  </ul>
+  </div>
 </content>
 <hr />
 {{ end }}

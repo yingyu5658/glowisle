@@ -1,0 +1,10 @@
+lang = "zh-CN"
+
+title = "映屿"
+
+[nav]
+categories = "分类"
+readings = "书单"
+links = "友人"
+archives = "归档"
+about = "关于"
