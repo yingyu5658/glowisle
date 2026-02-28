@@ -1,15 +1,4 @@
 ---
 title: "映屿"
 ---
-
-<!--
-
-![](/images/glowisle.jpeg)
-
-你好，这里是 映屿 (GlowIsle). 你可以叫我 Verdant 或 五葉地錦。
-
-我会在这里写写生活随笔、读书感悟、技术实践和幼稚观点。
-
- -->
-
 {{< recent-posts >}}
