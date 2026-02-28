@@ -1,0 +1,10 @@
+lang = "en"
+
+title = "GlowIsle"
+
+[nav]
+categories = "categories"
+readings = "readings"
+links = "links"
+archives = "archives"
+about = "about"

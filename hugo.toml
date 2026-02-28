@@ -3,8 +3,8 @@ title = "映屿"
 hasCJKLanguage = true
 enableRobotsTXT = true
 pagination.pagerSize = 5
-languageCode = "zh-CN"
-copyright = "Copyright © 2024, GlowIsle."
+defaultContentLanguage = "zh-CN"
+copyright = "Copyright © 2024 - 2026, GlowIsle."
 
 [outputFormats]
   [outputFormats.RSS]
@@ -39,32 +39,87 @@ tabWidth = 4
     category = "categories"
     tag = "tags"
 
-[menu]
 
-[[menu.main]]
-    name = "分类"
-    url = "/categories/"
+
+[languages]
+  [languages.zh-cn]
+    languageName = "中文"
+    weight = 1
+    title = "映屿"
+    # 中文菜单
+    [[languages.zh-cn.menu.main]]
+        name = "分类"
+        url = "/categories/"
+        weight = 2
+    [[languages.zh-cn.menu.main]]
+        name = "友人"
+        url = "/links/"
+        weight = 3
+    [[languages.zh-cn.menu.main]]
+        name = "归档"
+        url = "/archives/"
+        weight = 4
+    [[languages.zh-cn.menu.main]]
+        name = "书单"
+        url = "/readings/"
+ 	weight = 5
+    [[languages.zh-cn.menu.main]]
+        name = "关于"
+        url = "/about/"
+        weight = 6
+  [languages.en]
+    languageName = "English"
+    contentDir = "content/en"
+    title = "GlowIsle"
     weight = 2
+    # 英文菜单
+   [[languages.en.menu.main]]
+        name = "Categories"
+        url = "/categories/"
+        weight = 2
+    [[languages.en.menu.main]]
+        name = "Links"
+        url = "/links/"
+        weight = 3
+    [[languages.en.menu.main]]
+        name = "Archives"
+        url = "/archives/"
+        weight = 4
+    [[languages.en.menu.main]]
+        name = "Readings"
+        url = "/readings/"
+ 	weight = 5
+    [[languages.en.menu.main]]
+        name = "About"
+        url = "/about/"
+        weight = 6
 
-[[menu.main]]
-    name = "友人"
-    url = "/links/"
-    weight = 3
+# [menu]
 
-[[menu.main]]
-    name = "归档"
-    url = "/archives"
-    weight = 3
+# [[menu.main]]
+#     name = "分类"
+#     url = "/categories/"
+#     weight = 2
 
-[[menu.main]]
-    name = "书单"
-    url = "/readings"
-    weight = 3
+# [[menu.main]]
+#     name = "友人"
+#     url = "/links/"
+#     weight = 3
 
-[[menu.main]]
-    name = "关于"
-    url = "/about"
-    weight = 6
+# [[menu.main]]
+#     name = "归档"
+#     url = "/archives"
+#     weight = 3
+
+# [[menu.main]]
+#     name = "书单"
+#     url = "/readings"
+#     weight = 3
+
+# [[menu.main]]
+#     name = "关于"
+#     url = "/about"
+#     weight = 6
 
 [params]
 	upvote = true
