@@ -14,30 +14,19 @@
 
 {{ partial "post_meta.html" . }}
 
-{{ $upvoteEnabled := default .Site.Params.upvote .Params.upvote }} {{ if $upvoteEnabled }}
+{{ $upvoteEnabled := default .Site.Params.upvote .Params.upvote }}
+{{ if $upvoteEnabled }}
 <div class="upvote-container">
-  <small class="upvote">
-    <button class="upvote-btn" id="upvote-btn">
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        viewBox="0 0 24 24"
-        width="24"
-        height="24"
-        stroke="currentColor"
-        stroke-width="2"
-        fill="none"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-        class="css-i6dzq1"
-      >
-        <polyline points="17 11 12 6 7 11"></polyline>
-        <polyline points="17 18 12 13 7 18"></polyline>
-      </svg>
-      <span class="upvote-count" id="upvote-count">0</span>
-    </button>
-  </small>
+<small class="upvote">
+  <button class="upvote-btn" id="upvote-btn">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" class="css-i6dzq1">
+    <polyline points="17 11 12 6 7 11"></polyline>
+    <polyline points="17 18 12 13 7 18"></polyline>
+    </svg>
+    <span class="upvote-count" id="upvote-count">0</span>
+  </button>
+</small>
 </div>
-
 
 <script>
   let hasUpvoted = false;
@@ -45,50 +34,49 @@
   let upvoteCount;
 
   // 页面加载时获取点赞数量
-  document.addEventListener("DOMContentLoaded", function () {
-    const slug = "{{ .Slug }}";
-    upvoteBtn = document.getElementById("upvote-btn");
-    upvoteCount = document.getElementById("upvote-count");
+  document.addEventListener('DOMContentLoaded', function() {
+    const slug = '{{ .Slug }}';
+    upvoteBtn = document.getElementById('upvote-btn');
+    upvoteCount = document.getElementById('upvote-count');
     getCount(slug);
 
     // 处理点赞按钮的点击事件
-    upvoteBtn.addEventListener("click", handleUpvote);
+    upvoteBtn.addEventListener('click', handleUpvote);
   });
 
   // 点赞方法
   async function handleUpvote() {
     if (hasUpvoted) {
-      console.log("You have already upvoted this post!");
+      console.log('You have already upvoted this post!');
       return;
     }
-    const slug = "{{ .Slug }}";
+    const slug = '{{ .Slug }}';
 
     // 禁用按钮以防止重复点击
     upvoteBtn.disabled = true;
     // 给按钮添加 upvoted 类以赋以点击过的样式
-    upvoteBtn.classList.add("upvoted");
+    upvoteBtn.classList.add('upvoted');
     // 更新 upvote-count 的值 +1
     upvoteCount.innerText = parseInt(upvoteCount.innerText) + 1;
 
     try {
-      const response = await fetch("{{ .Site.Params.upvoteURL }}upvote", {
-        method: "POST",
-        mode: "cors",
+      const response = await fetch('{{ .Site.Params.upvoteURL }}upvote', {
+        method: 'POST',
         headers: {
-          "Content-Type": "application/json",
+          'Content-Type': 'application/json',
         },
         body: JSON.stringify({ postId: slug, diff: 1 }),
       });
 
       if (response.ok) {
-        console.log("Upvote successful!");
+        console.log('Upvote successful!');
         hasUpvoted = true;
         await getCount(slug, 3);
       } else {
-        console.log("Upvote failed!");
+        console.log('Upvote failed!');
       }
     } catch (error) {
-      console.error("Error: ", error);
+      console.error('Error: ', error);
     } finally {
       upvoteBtn.disabled = false;
     }
@@ -97,15 +85,12 @@
   // 获取 Upvote 数量的方法，支持设置重试次数，默认不重试
   async function getCount(slug, retryCount = 0) {
     try {
-      const response = await fetch(
-        "{{ .Site.Params.upvoteURL }}count?post=" + slug,
-        {
-          method: "GET",
-          headers: {
-            "Content-Type": "application/json",
-          },
+      const response = await fetch('{{ .Site.Params.upvoteURL }}count?post=' + slug, {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json',
         },
-      );
+      });
 
       const data = await response.json();
 
@@ -114,15 +99,15 @@
         upvoteCount.innerText = count;
         hasUpvoted = data.data.hasUpvoted;
         if (hasUpvoted) {
-          upvoteBtn.classList.add("upvoted");
+          upvoteBtn.classList.add('upvoted');
         } else {
-          upvoteBtn.classList.remove("upvoted");
+          upvoteBtn.classList.remove('upvoted');
         }
       } else {
-        console.error("Failed to get upvote count: ", data.msg);
+        console.error('Failed to get upvote count: ', data.msg);
       }
     } catch (error) {
-      console.error("Error: ", error);
+      console.error('Error: ', error);
       if (retryCount > 0) {
         setTimeout(() => {
           getCount(slug, retryCount - 1);
@@ -133,179 +118,181 @@
 </script>
 {{ end }}
 
+
+
 <!-- Place the TOC at the end to ensure the article content loads first. -->
 {{ $tocEnabled := default .Site.Params.toc .Params.toc }} {{ if $tocEnabled }}
 <div class="toc">{{ partial "toc.html" . }}</div>
 {{ end }}
 
-{{ if .Params.comments | default true }}
-<div class="comments-and-webmentions">
-  <details>
-    <summary>
-      <p style="display: inline">评论 与 Webmentions</p>
-    </summary>
-    <div id="giscus-container"></div>
+<!-- {{ if .Params.comments | default true }} -->
+<!-- <div class="comments-and-webmentions"> -->
+<!--   <details> -->
+<!--     <summary> -->
+<!--       <p style="display: inline">评论 与 Webmentions</p> -->
+<!--     </summary> -->
+<!--     <div id="giscus-container"></div> -->
 
-    <div class="wm">
-      <div id="webmentions"></div>
-      <script
-        src="/js/webmention.min.js"
-        data-id="webmentions"
-        data-page-url="https://www.glowisle.me{{ .RelPermalink }}"
-        data-max-webmentions="50"
-        data-wordcount="30"
-        data-sort-by="published"
-        data-sort-dir="up"
-        async
-      ></script>
+<!--     <div class="wm"> -->
+<!--       <div id="webmentions"></div> -->
+<!--       <script -->
+<!--         src="/js/webmention.min.js" -->
+<!--         data-id="webmentions" -->
+<!--         data-page-url="https://www.glowisle.me{{ .RelPermalink }}" -->
+<!--         data-max-webmentions="50" -->
+<!--         data-wordcount="30" -->
+<!--         data-sort-by="published" -->
+<!--         data-sort-dir="up" -->
+<!--         async -->
+<!--       ></script> -->
 
-      <p>
-        若想回复本文，请在你的博客或社媒发布含有本文链接的帖子，然后在下方表单提交链接。
-      </p>
-      <div class="wm-guide-content">
-        <div class="webmention-form">
-          <form
-            id="webmention-submit-form"
-            action="https://webmention.io/www.glowisle.me/webmention"
-            method="post"
-          >
-            <!-- 自动填充的目标文章链接 -->
-            <input
-              type="hidden"
-              name="target"
-              value="https://www.glowisle.me{{ .RelPermalink }}"
-            />
-            <div>
-              <label for="webmention-source">你的文章链接：</label>
-              <input
-                type="url"
-                id="webmention-source"
-                name="source"
-                required
-                pattern="https?://.+"
-              />
-              <button type="submit" id="webmention-submit-btn">提交</button>
-            </div>
-            <div id="webmention-form-feedback"></div>
-          </form>
-          <p>
-            也可以<a href="mailto:i@glowisle.me?subject=回复《{{ .Title  }}》">发送邮件</a>评论。
-          </p>
-          <a href="https://indieweb.org/webmention"
-            >关于 Webmention 的更多信息</a
-          >
-          以及
-          <a href="https://www.glowisle.me/posts/tear-hypocrisy-apart/"
-            >为什么要这么做？</a
-          >
-        </div>
+<!--       <p> -->
+<!--         若想回复本文，请在你的博客或社媒发布含有本文链接的帖子，然后在下方表单提交链接。 -->
+<!--       </p> -->
+<!--       <div class="wm-guide-content"> -->
+<!--         <div class="webmention-form"> -->
+<!--           <form -->
+<!--             id="webmention-submit-form" -->
+<!--             action="https://webmention.io/www.glowisle.me/webmention" -->
+<!--             method="post" -->
+<!--           > -->
+<!--             <\!-- 自动填充的目标文章链接 -\-> -->
+<!--             <input -->
+<!--               type="hidden" -->
+<!--               name="target" -->
+<!--               value="https://www.glowisle.me{{ .RelPermalink }}" -->
+<!--             /> -->
+<!--             <div> -->
+<!--               <label for="webmention-source">你的文章链接：</label> -->
+<!--               <input -->
+<!--                 type="url" -->
+<!--                 id="webmention-source" -->
+<!--                 name="source" -->
+<!--                 required -->
+<!--                 pattern="https?://.+" -->
+<!--               /> -->
+<!--               <button type="submit" id="webmention-submit-btn">提交</button> -->
+<!--             </div> -->
+<!--             <div id="webmention-form-feedback"></div> -->
+<!--           </form> -->
+<!--           <p> -->
+<!--             也可以<a href="mailto:i@glowisle.me?subject=回复《{{ .Title  }}》">发送邮件</a>评论。 -->
+<!--           </p> -->
+<!--           <a href="https://indieweb.org/webmention" -->
+<!--             >关于 Webmention 的更多信息</a -->
+<!--           > -->
+<!--           以及 -->
+<!--           <a href="https://www.glowisle.me/posts/tear-hypocrisy-apart/" -->
+<!--             >为什么要这么做？</a -->
+<!--           > -->
+<!--         </div> -->
 
-        <script>
-          function getInitialTheme() {
-            // 1. 优先检查 localStorage 中的用户偏好
-            if (
-              typeof localStorage !== "undefined" &&
-              localStorage.getItem("theme")
-            ) {
-              return localStorage.getItem("theme");
-            }
-            // 2. 检查系统偏好
-            if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
-              return "dark";
-            }
-            // 3. 默认值
-            return "light";
-          }
+<!--         <script> -->
+<!--           function getInitialTheme() { -->
+<!--             // 1. 优先检查 localStorage 中的用户偏好 -->
+<!--             if ( -->
+<!--               typeof localStorage !== "undefined" && -->
+<!--               localStorage.getItem("theme") -->
+<!--             ) { -->
+<!--               return localStorage.getItem("theme"); -->
+<!--             } -->
+<!--             // 2. 检查系统偏好 -->
+<!--             if (window.matchMedia("(prefers-color-scheme: dark)").matches) { -->
+<!--               return "dark"; -->
+<!--             } -->
+<!--             // 3. 默认值 -->
+<!--             return "light"; -->
+<!--           } -->
 
-          const currentTheme = getInitialTheme();
-          const giscusTheme = currentTheme === "dark" ? "dark" : "light";
+<!--           const currentTheme = getInitialTheme(); -->
+<!--           const giscusTheme = currentTheme === "dark" ? "dark" : "light"; -->
 
-          const giscusScript = document.createElement("script");
-          giscusScript.src = "https://giscus.app/client.js";
-          giscusScript.setAttribute(
-            "data-repo",
-            "yingyu5658/yingyu5658.github.io",
-          );
-          giscusScript.setAttribute("data-repo-id", "R_kgDOOBetsA");
-          giscusScript.setAttribute("data-category", "Announcements");
-          giscusScript.setAttribute("data-category-id", "DIC_kwDOOBetsM4CoF_Z");
-          giscusScript.setAttribute("data-mapping", "title");
-          giscusScript.setAttribute("data-strict", "0");
-          giscusScript.setAttribute("data-reactions-enabled", "0");
-          giscusScript.setAttribute("data-emit-metadata", "0");
-          giscusScript.setAttribute("data-input-position", "bottom");
-          giscusScript.setAttribute("data-theme", giscusTheme);
-          giscusScript.setAttribute("data-lang", "zh-CN");
-          giscusScript.crossOrigin = "anonymous";
-          giscusScript.async = true;
+<!--           const giscusScript = document.createElement("script"); -->
+<!--           giscusScript.src = "https://giscus.app/client.js"; -->
+<!--           giscusScript.setAttribute( -->
+<!--             "data-repo", -->
+<!--             "yingyu5658/yingyu5658.github.io", -->
+<!--           ); -->
+<!--           giscusScript.setAttribute("data-repo-id", "R_kgDOOBetsA"); -->
+<!--           giscusScript.setAttribute("data-category", "Announcements"); -->
+<!--           giscusScript.setAttribute("data-category-id", "DIC_kwDOOBetsM4CoF_Z"); -->
+<!--           giscusScript.setAttribute("data-mapping", "title"); -->
+<!--           giscusScript.setAttribute("data-strict", "0"); -->
+<!--           giscusScript.setAttribute("data-reactions-enabled", "0"); -->
+<!--           giscusScript.setAttribute("data-emit-metadata", "0"); -->
+<!--           giscusScript.setAttribute("data-input-position", "bottom"); -->
+<!--           giscusScript.setAttribute("data-theme", giscusTheme); -->
+<!--           giscusScript.setAttribute("data-lang", "zh-CN"); -->
+<!--           giscusScript.crossOrigin = "anonymous"; -->
+<!--           giscusScript.async = true; -->
 
-          document.getElementById("giscus-container").appendChild(giscusScript);
+<!--           document.getElementById("giscus-container").appendChild(giscusScript); -->
 
-          document.addEventListener("DOMContentLoaded", function () {
-            const form = document.getElementById("webmention-submit-form");
-            const submitBtn = document.getElementById("webmention-submit-btn");
-            const feedbackEl = document.getElementById(
-              "webmention-form-feedback",
-            );
+<!--           document.addEventListener("DOMContentLoaded", function () { -->
+<!--             const form = document.getElementById("webmention-submit-form"); -->
+<!--             const submitBtn = document.getElementById("webmention-submit-btn"); -->
+<!--             const feedbackEl = document.getElementById( -->
+<!--               "webmention-form-feedback", -->
+<!--             ); -->
 
-            if (!form) return;
+<!--             if (!form) return; -->
 
-            form.addEventListener("submit", async function (e) {
-              e.preventDefault();
+<!--             form.addEventListener("submit", async function (e) { -->
+<!--               e.preventDefault(); -->
 
-              // 禁用提交按钮防止重复提交
-              const originalBtnText = submitBtn.textContent;
-              submitBtn.disabled = true;
-              submitBtn.textContent = "发送中...";
+<!--               // 禁用提交按钮防止重复提交 -->
+<!--               const originalBtnText = submitBtn.textContent; -->
+<!--               submitBtn.disabled = true; -->
+<!--               submitBtn.textContent = "发送中..."; -->
 
-              // 清除之前的反馈信息
-              feedbackEl.textContent = "";
+<!--               // 清除之前的反馈信息 -->
+<!--               feedbackEl.textContent = ""; -->
 
-              try {
-                // 使用 FormData 收集表单数据
-                const formData = new FormData(form);
+<!--               try { -->
+<!--                 // 使用 FormData 收集表单数据 -->
+<!--                 const formData = new FormData(form); -->
 
-                // 发送 POST 请求
-                const response = await fetch(form.action, {
-                  method: "POST",
-                  headers: {
-                    Accept: "application/json",
-                  },
-                  body: new URLSearchParams(formData),
-                });
+<!--                 // 发送 POST 请求 -->
+<!--                 const response = await fetch(form.action, { -->
+<!--                   method: "POST", -->
+<!--                   headers: { -->
+<!--                     Accept: "application/json", -->
+<!--                   }, -->
+<!--                   body: new URLSearchParams(formData), -->
+<!--                 }); -->
 
-                const result = await response.json();
+<!--                 const result = await response.json(); -->
 
-                if (response.ok) {
-                  // 成功响应
-                  feedbackEl.textContent =
-                    "✅ 提交成功！Webmention 正在处理中。";
-                  form.reset();
-                } else {
-                  // 错误响应
-                  let errorMsg = "提交失败：";
-                  if (result.error || result.summary) {
-                    errorMsg += result.error || result.summary;
-                  }
-                  feedbackEl.textContent = errorMsg;
-                }
-              } catch (error) {
-                // 网络错误
-                feedbackEl.textContent =
-                  "❌ 提交过程中出现网络错误，请稍后重试。";
-              } finally {
-                // 恢复提交按钮状态
-                submitBtn.disabled = false;
-                submitBtn.textContent = originalBtnText;
-              }
-            });
-          });
-        </script>
+<!--                 if (response.ok) { -->
+<!--                   // 成功响应 -->
+<!--                   feedbackEl.textContent = -->
+<!--                     "✅ 提交成功！Webmention 正在处理中。"; -->
+<!--                   form.reset(); -->
+<!--                 } else { -->
+<!--                   // 错误响应 -->
+<!--                   let errorMsg = "提交失败："; -->
+<!--                   if (result.error || result.summary) { -->
+<!--                     errorMsg += result.error || result.summary; -->
+<!--                   } -->
+<!--                   feedbackEl.textContent = errorMsg; -->
+<!--                 } -->
+<!--               } catch (error) { -->
+<!--                 // 网络错误 -->
+<!--                 feedbackEl.textContent = -->
+<!--                   "❌ 提交过程中出现网络错误，请稍后重试。"; -->
+<!--               } finally { -->
+<!--                 // 恢复提交按钮状态 -->
+<!--                 submitBtn.disabled = false; -->
+<!--                 submitBtn.textContent = originalBtnText; -->
+<!--               } -->
+<!--             }); -->
+<!--           }); -->
+<!--         </script> -->
 
-        {{ end }}
-      </div>
-    </div>
-  </details>
+<!--         {{ end }} -->
+<!--       </div> -->
+<!--     </div> -->
+<!--   </details> -->
 
   {{ if not .Params.comments }}
   {{ with .Params.reason }}
