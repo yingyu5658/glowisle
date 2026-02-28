@@ -1,0 +1,107 @@
+<!-- 来自：https://github.com/BigCoke233/geek-death-project/blob/master/layouts/_markup/render-blockquote.html -->
+
+<style>
+
+/* 图标/标题所在的第一个 div */
+blockquote[class*="alert-"] > div:first-child {
+    font-size: 1.25rem;
+    font-weight: bold;
+    user-select: none;
+}
+
+/* 2. 针对不同类型的具体配色 */
+
+/* Note - 信息提示 - 蓝色 */
+.alert-note {
+    border-left-color: #2196f3;
+}
+.alert-note > div:first-child {
+    color: #2196f3;
+}
+
+/* Tip - 技巧/建议 - 绿色 */
+.alert-tip {
+    border-left-color: #4caf50;
+}
+.alert-tip > div:first-child {
+    color: #4caf50;
+}
+
+/* Warning - 警告 - 橙色 */
+.alert-warning {
+    border-left-color: #ff9800;
+}
+.alert-warning > div:first-child {
+    color: #ff9800;
+}
+
+/* Caution - 危险/注意 - 红色 */
+.alert-caution {
+    border-left-color: #f44336;
+}
+.alert-caution > div:first-child {
+    color: #f44336;
+}
+
+/* Important - 重要 - 紫色/深蓝 */
+.alert-important {
+    border-left-color: #9c27b0;
+}
+.alert-important > div:first-child {
+    color: #9c27b0;
+}
+
+/* Announcement - 公告 - 青色 */
+.alert-announcement {
+    border-left-color: #00bcd4;
+}
+.alert-announcement > div:first-child {
+    color: #00bcd4;
+}
+
+/* 3. 普通 blockquote 样式 (非 Alert) */
+blockquote.text-secondary {
+    border-left: 3px solid #e0e0e0;
+    color: #666;
+    padding-left: 1.5rem !important; /* 覆盖 p-0 */
+}
+
+/* 适配暗色模式 (可选) */
+@media (prefers-color-scheme: dark) {
+    blockquote.text-secondary {
+        border-left-color: #444;
+        color: #aaa;
+    }
+}
+</style>
+
+
+{{ $emojis := dict
+  "caution" "🚨"
+  "important" "☝️"
+  "note" "ℹ️"
+  "tip" "💡"
+  "warning" "⚠️"
+  "announcement" "📣"
+}}
+
+{{ if eq .Type "alert" }}
+  <blockquote class="rounded-1 leading-[1.75] mx-0 px-5
+      flex gap-3 my-2 alert-{{ .AlertType }}"
+  >
+    <div class="py-5">
+      {{ with .AlertTitle }}
+        {{.}}
+      {{ else }}
+        {{ index $emojis .AlertType }}
+      {{ end }}
+    </div>
+    <div>
+        {{ .Text }}
+    </div>
+  </blockquote>
+{{ else }}
+  <blockquote class="text-secondary p-0 m-0 ml-[1em]">
+    {{ .Text }}
+  </blockquote>
+{{ end }}
