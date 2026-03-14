@@ -4,6 +4,8 @@ title: 友人
 comments: false
 showMeta: false
 ---
+## 友情链接
+
 | Link                                         | Description                                        |
 | -------------------------------------------- | -------------------------------------------------- |
 | [MRZHU的小站](https://www.sifangbazhu.tech/) | 向着计算物理出发吧！                               |
@@ -22,6 +24,20 @@ showMeta: false
 | [太隐](https://wangyurui.com/)               | 一个人的思想发育史就是他的阅读史                   |
 | [辛未羊的网络日志](https://panqiincs.me/) | 记录生活和学习 |
 | [Doin的赛博空间](https://doin.pages.dev/) | 来自后玲音与爱丽丝时代的幻想。 |
+
+## 88x31
+
+欢迎交换 88x31 按钮。第一个是本站的按钮，可以放到你自己的网站上，然后用 [邮件](mailto:i@glowisle.me) 联系我交换即可。
+
+<div class="badge-88x31">
+
+
+<a href="https://www.glowisle.me"><img src="https://www.glowisle.me/88x31.gif"></a>
+
+<a href="https://www.geedea.pro/"><img src="https://r2.eltr.ac/geedeapro/88x31.png"></a>
+
+
+</div>
 
 <!--
 
