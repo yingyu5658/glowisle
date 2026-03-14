@@ -1,10 +1,16 @@
 {{ define "main" }}
-<header>{{- partial "header.html" . -}}</header>
+<header>
+<a href="{{ "" | relURL }}" class="title">
+  <p class="site-title">{{ .Site.Title }}<p>
+</a>
+<nav>{{- partial "nav.html" . -}}</nav>
+
+</header>
 
 <article class="h-entry">
-<h2 class="post-title">
+<h1 class="post-title">
       <a href="{{ .RelPermalink }}" class="item-link">{{ .Title }}</a>
-</h2>
+</h1>
 
   <div class="e-content">{{ .Content }}</div>
 </article>
