@@ -1,6 +1,6 @@
 <style>
 :root {
-    --width-max: 700px;
+    --width-max: 680px;
     --font-secondary: monospace;
     --font-size-primary: 1rem;
     --font-size-secondary: .85rem;
@@ -19,7 +19,8 @@
     --upvoted-color: #fa8072;
     --caption-text-color: #666;
     --toc-text-color: #e5e5e5;
-    --toc-hover-color: e5e5e5;
+    --toc-hover-color
+: e5e5e5;
     --music-bg-hover-light: #e5e5e5;
     --music-bg-light: rgba(229, 229, 229, 0.5);
     --music-text-secondary: #666;
@@ -27,6 +28,41 @@
     --summary-text-color: #4e4e4e;
     --svg-size: 0.85em;
     --title-color: #444444;
+}
+
+:is(article, .summary) p:not(.music-card *) {
+    margin-top: 1.6rem;
+}
+
+h1, h2 {
+    margin: 0;
+    padding: 0;
+}
+
+.site-title {
+  margin: 15px 0 15px 0;
+  font-size: 2.15em;
+  font-weight: 700;
+}
+
+.badge-88x31 {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+
+.badge-88x31 a {
+  flex: 0 0 auto;
+  line-height: 0;
+}
+
+.badge-88x31 img {
+  display: block;
+}
+
+.post-title a.item-link {
+    font-size: 1.25rem;
+    margin-bottom: 0;
 }
 
 .e-content :is(h1, h2, h3, h4, h5, h6), .summary :is(h1, h2, h3, h4, h5, h6) {
@@ -37,9 +73,6 @@
     color: var(--body-text-color)
 }
 
-.recent-post-title a.item-link, h2.post-title a.item-link , .post-title, .recent-post-title {
-    margin-bottom: 0;
-}
 
 
 body {
@@ -56,7 +89,6 @@ body {
     color: var(--body-text-color);
 }
 
-.recent-post-title a, 
 .post-title a {
     margin: 16px 0;
 }
@@ -65,9 +97,9 @@ body {
     color: var(--link-color);
 }
 
-article p {
+p {
     line-height: 2;
-    font-weight: 400;
+    font-weight: 350;
 }
 
 div.summary {
@@ -105,7 +137,7 @@ time {
 
 header {
     margin-top: 30px;
-    margin-bottom: 4vh;
+margin-bottom: 2rem;
 }
 
 .title {
@@ -162,21 +194,28 @@ footer {
     list-style-type: none;
 }
 
-.item-link {
-    width: 100%;
-    display: inline-block;
-    text-decoration: none;
-    flex: 1;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    font-size: 1.6em;
-    word-wrap: break-word;
-    white-space: nowrap;
-}
+<!-- .item-link { -->
+<!--     width: 100%; -->
+<!--     display: inline-block; -->
+<!--     text-decoration: none; -->
+<!--     flex: 1; -->
+<!--     overflow: hidden; -->
+<!--     text-overflow: ellipsis; -->
+<!--     font-size: 1.6em; -->
+<!--     word-wrap: break-word; -->
+<!--     white-space: nowrap; -->
+<!-- } -->
+
 
 .post-title a.item-link {
-    font-size: 1.25em;
-    white-space: normal; /* 覆盖上面的 nowrap */
+font-size: 1.5rem;
+}
+
+.post-title {
+    margin: 0 !important;
+    display: inline-block;
+    font-size: 1.5rem !important;
+
 }
 
 .post-date, .post-date-shortcode {
@@ -734,4 +773,41 @@ ul li:has(input) {
         gap: 10px;
     }
 }
+
+.title h1, 
+.title p {
+    margin: 15px 0 !important;
+    font-size: 2.15em !important;
+    font-weight: 700 !important;
+    line-height: 1.2 !important;
+    display: block !important;
+    padding: 0 !important;
+}
+
+.post-title {
+    margin: 20px 0 !important;
+    font-size: 1.5rem !important;
+    line-height: 1.4 !important;
+    display: block !important;
+    padding: 0 !important;
+}
+
+.post-title a {
+    margin: 0 !important;
+    display: inline-block !important;
+    padding: 0 !important;
+}
+
+nav {
+    margin-top: 0 !important;
+    margin-bottom: 20px !important;
+    line-height: 1.6 !important;
+}
+
+header {
+    margin-top: 30px;
+    margin-bottom: 2rem;
+    display: block;
+}
+
 </style>
