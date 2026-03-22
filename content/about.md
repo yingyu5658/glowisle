@@ -50,6 +50,6 @@ showMeta: false
 
 - 本站样式基于 [Hugo Bear Neo](https://github.com/rokcso/hugo-bearneo/) 主题修改
 - 音乐卡片来自 [極客死亡計劃](https://src.eltr.ac/eltrac/geedeapro)
-- 博客内容承诺均**非AI创作**，所有文章内容使用[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/)协议授权，源代码以 MIT 协议授权。
+- 博客内容承诺均**非AI创作**，所有文章内容使用[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/)协议授权，源代码以 GPL-2.0 协议授权。
 
 目前文章字数：{{< word-count "posts" >}} 
