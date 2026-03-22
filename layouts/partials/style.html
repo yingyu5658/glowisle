@@ -19,8 +19,7 @@
     --upvoted-color: #fa8072;
     --caption-text-color: #666;
     --toc-text-color: #e5e5e5;
-    --toc-hover-color
-: e5e5e5;
+    --toc-hover-color: e5e5e5;
     --music-bg-hover-light: #e5e5e5;
     --music-bg-light: rgba(229, 229, 229, 0.5);
     --music-text-secondary: #666;
@@ -71,6 +70,10 @@ h1, h2 {
 
 .post-meta-item a, .rss-icon a, .post-title a, header a, a.title h1, p {
     color: var(--body-text-color)
+}
+
+.post-meta-item a {
+    font-size: .85rem;
 }
 
 
@@ -280,9 +283,8 @@ ul.blog-posts li span.grouped {
 }
 
 .post-meta-item {
-    margin-right: 0.8em;
+    margin-right: 0.3rem;
     display: inline-block;
-    font-size: var(--font-size-secondary);
 }
 
 .post-meta-item svg {
@@ -296,7 +298,6 @@ ul.blog-posts li span.grouped {
 }
 
 .post-tag a {
-    font-size: var(--font-size-secondary) !important;
 }
 
 img {
@@ -646,6 +647,10 @@ ul li:has(input) {
         cursor: pointer;
         text-decoration: none;
     }
+
+h3.recent-post-title a {
+color: var(--body-text-color);
+}
 
     a:hover {
         text-decoration: underline;
