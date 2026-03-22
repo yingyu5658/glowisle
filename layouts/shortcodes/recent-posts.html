@@ -1,136 +1,62 @@
-{{ $pages := where site.RegularPages "Type" "in" site.Params.mainSections }} {{
-$recent := first 6 $pages.ByDate.Reverse }}
+{{ $pages := where site.RegularPages "Type" "in" site.Params.mainSections }}
+{{ $recent := first 12 $pages.ByDate.Reverse }}
 
 <style>
-  .item-link {
-      word-wrap: break-word;
-      white-space: normal;
-  }
   .recent-list {
-      margin: 0;
+    list-style: none;
+    margin: 0;
+    padding: 0;
   }
-  .post-meta {
-      margin-bottom: 5px;
+  .recent-list li {
+    margin-bottom: 0.5em;
+    line-height: 1.4;
   }
-  .recent-item {
-      position: relative;
-      margin-bottom: 8px;
-      flex-shrink: 0;
+  .recent-date {
+    font-family: monospace;
+    margin-right: 1.5em;
+    white-space: nowrap;
   }
-  .split {
-      margin: 0;
-      padding: 0;
-      display: inline;
-  }
-  .recent-posts-item {
-      margin-top: 0;
-      margin-bottom: 35px;
-
-  }
-  .recent-post-title {
-      margin-top: 2px;
-      margin-bottom: -10px;
-
-  }
-  @media (max-width: 720px) {
-      .post-date {
-	  min-width: auto;
-	  font-size: 1.05em;
-      }
-      .item-link {
-	  white-space: normal; /* 允许换行 */
-	  word-wrap: break-word; /* 强制长单词/链接换行 */
-	  overflow: visible; /* 取消隐藏 */
-	  text-overflow: clip; /* 取消省略号 */
-      }
-  }
-  .category-link {
-      font-size: 0.9em;
+  .recent-title {
+    word-wrap: break-word;
   }
   .recent-empty {
-      text-align: center;
-      font-style: italic;
+    text-align: center;
+    font-style: italic;
+  }
+  @media (max-width: 720px) {
+    .recent-list li {
+      display: flex;
+      flex-wrap: wrap;
+    }
+    .recent-date {
+      width: auto;
+      margin-right: 0.5em;
+    }
+  }
+
+  .recent-posts {
+      margin-top: .8rem;
+  }
+
+  .recent-posts h2 {
+      margin-top: 1rem;
+      margin-bottom: 1rem;
+
   }
 </style>
 
 <div class="recent-posts">
-
+  <h2>最近更新</h2>
   {{ if $recent }}
-  {{ range $index, $page := $recent }}
-  <div class="recent-posts-item">
-    <h3 class="recent-post-title">
-      <a href="{{ .RelPermalink }}" class="item-link">{{ .Title }}</a>
-    </h3>
-
-{{ if ne (.Params.showMeta | default true) false }}
-<div class="post-meta">
-
-    <div class="post-meta-item post-date">
-        <time class="dt-published" datetime="{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}">
-            {{ .Date.Format "January 02, 2006" }}
-        </time>
-    </div>
-
-    <div class="post-meta-item post-category">
-
-        {{ range .Params.categories }}
-        {{ $url := printf "/categories/%s/" (. | urlize) }}
-•
-        <a href="{{ $url }}" class="category-link">{{ . }}</a>
-        {{ end }}
-    </div>
-</div>
-{{ end }}
-
-
-
-
-
-
-
-    <!-- <div class="post-meta"> -->
-    <!--   <span class="post-date"> -->
-    <!--     <time datetime='{{ .Date.Format "Jan 02, 2006" }}'>{{- .Date.Format (default "Jan 02, 2006" .Site.Params.dateFormat) -}}•</time> -->
-
-
-    <!--   </span> -->
-    <!--   {{ with .Params.categories }} -->
-    <!--   {{ range . }} -->
-    <!--   {{ $category := . }} -->
-    <!--   {{ with $.Site.GetPage (printf "categories/%s" $category) }} -->
-    <!--   <a href="{{ .Permalink }}" class="category-link">{{ .Title }}</a> -->
-    <!--   {{ else }} -->
-    <!--   <a href="{{ "categories/" | relLangURL}}{{ $category | urlize}}" class="category-link">{{ $category }}</a> -->
-    <!--   {{ end }} -->
-    <!--   {{ end }} -->
-    <!--   {{ end }} -->
-    <!-- </div> -->
-  </div>
-  {{ end }}
+  <ul class="recent-list">
+    {{ range $recent }}
+    <li>
+      <span class="recent-date">{{ .Date.Format "2006-01-02" }}</span>
+      <a href="{{ .RelPermalink }}" class="recent-title">{{ .Title }}</a>
+    </li>
+    {{ end }}
+  </ul>
   {{ else }}
   <div class="recent-empty">暂无文章</div>
-  
-
+  {{ end }}
 </div>
-
-{{ end }}
-
-<!-- <div class="recent-posts"> -->
-  <!-- {{ range $index, $page := $recent }} -->
-  <!-- {{ end }} -->
-  <!-- </div> -->
-
-<!-- <div class="recent-posts"> -->
-  <!--   {{ if $recent }} {{ range $index, $page := $recent }} -->
-  <!--   <div class="recent-posts-item"> -->
-    <!--     <h2 class="recent-post-title post-title"> -->
-      <!--       <a href="{{ .RelPermalink }}" class="item-link">{{ .Title }}</a> -->
-      <!--     </h2> -->
-    <!--     <div class="summary">{{ .Summary }}</div> -->
-
-    <!--     {{ partial "post_meta.html" . }} -->
-
-    <!--   {{ if not (eq (add $index 1) (len $recent)) }} {{ end }} {{ end }} {{ else }} -->
-    <!--   <div class="recent-empty">暂无文章</div> -->
-    <!--   {{ end }} -->
-    <!-- </div> -->
