@@ -1,9 +1,10 @@
 <style>
+
 :root {
-    --width-max: 680px;
+    --width-max: 720px;
     --font-secondary: monospace;
-    --font-size-primary: 1rem;
-    --font-size-secondary: .85rem;
+    --font-size-primary: 1.1rem;
+    --font-size-secondary: .83rem;
     --body-bg-color: #fbfbf6;
     --bold-text-color: #222;
     --body-text-color: #444;
@@ -31,6 +32,14 @@
 
 :is(article, .summary) p:not(.music-card *) {
     margin-top: 1.6rem;
+}
+
+.e-content h2,
+.e-content h3, 
+.e-content h4, 
+.e-content h5,
+.e-content h6 {
+    font-weight: 400;
 }
 
 h1, h2 {
@@ -79,7 +88,6 @@ h1, h2 {
 
 
 body {
-    font-family: var(--font-primary);
     font-size: var(--font-size-primary);
     margin: auto;
     padding: 20px;
@@ -202,14 +210,16 @@ footer {
 
 
 .post-title a.item-link {
-font-size: 1.5rem;
+font-size: 1.8rem;
+}
+
+h1.post-title {
+        margin-top: 0;
 }
 
 .post-title {
     margin: 0 !important;
     display: inline-block;
-    font-size: 1.5rem !important;
-
 }
 
 .post-date, .post-date-shortcode {
@@ -781,15 +791,13 @@ color: var(--body-text-color);
 }
 
 .post-title {
-    margin: 20px 0 !important;
-    font-size: 1.5rem !important;
+    font-size: 26.4px;
     line-height: 1.4 !important;
     display: block !important;
     padding: 0 !important;
 }
 
 .post-title a {
-    margin: 0 !important;
     display: inline-block !important;
     padding: 0 !important;
 }
@@ -803,6 +811,10 @@ nav {
 header {
     margin-top: 30px;
     display: block;
+}
+
+gnu {
+        display: none;
 }
 
 </style>

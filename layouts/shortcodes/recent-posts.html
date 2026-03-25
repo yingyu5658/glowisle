@@ -1,5 +1,5 @@
 {{ $pages := where site.RegularPages "Type" "in" site.Params.mainSections }}
-{{ $recent := first 12 $pages.ByDate.Reverse }}
+{{ $recent := first 10 $pages.ByDate.Reverse }}
 
 <style>
   .recent-list {
