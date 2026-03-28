@@ -59,11 +59,7 @@ tabWidth = 4
         name = "归档"
         url = "/archives/"
         weight = 4
-    [[languages.zh-cn.menu.main]]
-        name = "书单"
-        url = "/readings/"
- 	weight = 5
-    [[languages.zh-cn.menu.main]]
+   [[languages.zh-cn.menu.main]]
         name = "关于"
         url = "/about/"
         weight = 6
@@ -93,41 +89,13 @@ tabWidth = 4
         name = "About"
         url = "/about/"
         weight = 6
-
-# [menu]
-
-# [[menu.main]]
-#     name = "分类"
-#     url = "/categories/"
-#     weight = 2
-
-# [[menu.main]]
-#     name = "友人"
-#     url = "/links/"
-#     weight = 3
-
-# [[menu.main]]
-#     name = "归档"
-#     url = "/archives"
-#     weight = 3
-
-# [[menu.main]]
-#     name = "书单"
-#     url = "/readings"
-#     weight = 3
-
-# [[menu.main]]
-#     name = "关于"
-#     url = "/about"
-#     weight = 6
-
 [params]
 	upvote = true
     upvoteURL = "https://upvote.glowisle.me/"
 	description = "关于互联网、书籍、生活琐事以及那些一闪而过的念头。计算机技术 & 读书感悟 & 日常随笔。映屿(GlowIsle)"
 	postSearch = false
 	groupByYear = true
-	toc = true
+	toc = false
 	showPostCount = true
 	favicon = "/favicon.png"
     hideMadeWithLine = true

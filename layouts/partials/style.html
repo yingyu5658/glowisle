@@ -1,10 +1,10 @@
 <style>
 
 :root {
-    --width-max: 720px;
+    --width-max: 550px;
     --font-secondary: monospace;
-    --font-size-primary: 1.1rem;
-    --font-size-secondary: .83rem;
+    --font-size-primary: 1rem;
+    --font-size-secondary: .93rem;
     --body-bg-color: #fbfbf6;
     --bold-text-color: #222;
     --body-text-color: #444;
@@ -25,9 +25,22 @@
     --music-bg-light: rgba(229, 229, 229, 0.5);
     --music-text-secondary: #666;
     --music-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-    --summary-text-color: #4e4e4e;
+    --summary-text-color: #706c6c;
     --svg-size: 0.85em;
     --title-color: #444444;
+}
+
+.recent-title {
+    font-weight: 700;
+    border: none;
+}
+
+.recent-date {
+    display: block;
+}
+
+summary p{
+    color: var(--summary-text-color);
 }
 
 :is(article, .summary) p:not(.music-card *) {
@@ -39,7 +52,8 @@
 .e-content h4, 
 .e-content h5,
 .e-content h6 {
-    font-weight: 400;
+    font-weight: 800;
+
 }
 
 h1, h2 {
@@ -110,7 +124,7 @@ body {
 
 p {
     line-height: 2;
-    font-weight: 350;
+    font-weight: inherit;
 }
 
 div.summary {
@@ -122,10 +136,9 @@ div.summary p {
 }
 
 a {
-    color: var(--link-color);
-    cursor: pointer;
-    text-decoration: none;
-    transition-duration: 0.3s;
+  text-decoration: none;
+  border-bottom: 1px dotted;
+  color: var(--body-text-color) !important;
 }
 
 strong, b {
@@ -172,6 +185,7 @@ a.title h1 {
 
 nav a {
   margin-right: 8px;
+  border: none;
 }
 
 footer {
@@ -184,16 +198,12 @@ footer {
     margin: 0 0 120px 0;
 }
 
-.recent-list {
-    padding-left: 2vw;
+.recent-item {
+    margin-bottom: 4rem;
 }
 
-.recent-item {
-    position: relative;
-    margin-bottom: 8px;
-    display: flex;
-    align-items: flex-start;
-    list-style-type: none;
+.recent-list {
+    padding-left: 2vw;
 }
 
 <!-- .item-link { -->
@@ -211,6 +221,7 @@ footer {
 
 .post-title a.item-link {
 font-size: 1.8rem;
+border: none;
 }
 
 h1.post-title {
@@ -244,22 +255,6 @@ ul.blog-posts {
 ul.blog-posts li {
     display: flex;
     margin-bottom: 8px;
-}
-
-ul.blog-posts li a {
-    margin-left: 10px;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    text-decoration: none !important;
-}
-
-ul.blog-posts li a:hover {
-    text-decoration: underline 0.5px !important;
-}
-
-ul.blog-posts li a:visited {
-    color: var(--link-visited-color);
 }
 
 ul.blog-posts li span {
@@ -621,7 +616,7 @@ ul li:has(input) {
 @media (prefers-color-scheme: dark) {
     :root {
         --summary-text-color: #c9c6c5;
-        --body-bg-color: #121212;
+        --body-bg-color: #262624;
         --bold-text-color: #eee;
         --body-text-color: #e8e6e3;
         --text-color-tertiary: #a0a0a0;
@@ -641,6 +636,7 @@ ul li:has(input) {
         --music-bg-dark: rgba(82, 82, 82, 0.5);
         --music-text-secondary: #a3a3a3;
         --color-background: var(--body-bg-color) !important;
+        --summary-text-color: #a2a2a2;
     }
 
     a {
@@ -652,10 +648,6 @@ ul li:has(input) {
 h3.recent-post-title a {
 color: var(--body-text-color);
 }
-
-    a:hover {
-        text-decoration: underline;
-    }
 
     .post-meta-item svg {
         filter: invert(1) hue-rotate(180deg);
@@ -713,9 +705,7 @@ color: var(--body-text-color);
         border: 1px solid #414141 !important;
     }
 
-    a {
-        font-weight: 500 !important;
-    }
+    
 }
 
 @media (min-width: 768px) {

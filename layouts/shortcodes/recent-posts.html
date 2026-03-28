@@ -8,12 +8,11 @@
     padding: 0;
   }
   .recent-list li {
-    margin-bottom: 0.5em;
-    line-height: 1.4;
+    margin-bottom: 8px;
   }
   .recent-date {
     font-family: monospace;
-    margin-right: 1.5em;
+    margin-right: 10px;
     white-space: nowrap;
   }
   .recent-title {
@@ -46,14 +45,20 @@
 </style>
 
 <div class="recent-posts">
-  <h2>最近更新</h2>
   {{ if $recent }}
   <ul class="recent-list">
     {{ range $recent }}
-    <li>
+    <div class="recent-item">
+      <li>
       <span class="recent-date">{{ .Date.Format "2006-01-02" }}</span>
       <a href="{{ .RelPermalink }}" class="recent-title">{{ .Title }}</a>
-    </li>
+      </li>
+
+      <summary>
+	{{ .Summary }}
+      </summary>
+
+      </div>
     {{ end }}
   </ul>
   {{ else }}
