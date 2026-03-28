@@ -1,5 +1,3 @@
 ---
 title: "GlowIsle"
 ---
-
-{{< recent-posts >}}
