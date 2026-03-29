@@ -1,0 +1,37 @@
+<!-- 这里的代码来自 https://github.com/BigCoke233/geek-death-project/blob/master/layouts/_shortcodes/music.html -->
+<!-- 为了适配需求，我做了部分修改 -->
+<div class="music-card">
+    <!-- Cover, title, artist -->
+    <div class="music-info">
+        <img class="music-cover"
+            src="{{ .Get "cover" }}" loading="lazy" alt="Cover" />
+        <div class="music-text">
+            <h4 class="music-title">{{ .Get "title" }}</h4>
+            <p class="music-artist">{{ .Get "artist" }}</p>
+        </div>
+    </div>
+
+    <!-- Links -->
+    <div class="music-links">
+        {{ with .Get "apple" }}
+        <a href="{{ . }}" class="music-btn" target="_blank" title="在 Apple Music 中打开" data-tooltip>
+            <img src="/images/apple-music.png" loading="lazy" class="music-icon" alt="Apple Music" />
+            <span class="music-btn-text">Apple Music</span>
+        </a>
+        {{ end }}
+
+        {{ with .Get "netease" }}
+        <a href="{{ . }}" class="music-btn" target="_blank" title="在网易云音乐中打开" data-tooltip>
+            <img src="/images/netease-music.png" loading="lazy" class="music-icon" alt="Netease Music" />
+            <span class="music-btn-text">网易云</span>
+        </a>
+        {{ end }}
+
+        {{ with .Get "spotify" }}
+        <a href="{{ . }}" class="music-btn" target="_blank" title="在 Spotify 中打开" data-tooltip>
+            <img src="/images/spotify.png" loading="lazy" class="music-icon" alt="Spotify" />
+            <span class="music-btn-text">Spotify</span>
+        </a>
+        {{ end }}
+    </div>
+</div>

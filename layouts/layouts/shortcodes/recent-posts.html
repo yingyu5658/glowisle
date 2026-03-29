@@ -1,0 +1,24 @@
+{{ $pages := where site.RegularPages "Type" "in" site.Params.mainSections }} {{
+$recent := first 5 $pages.ByDate.Reverse }}
+
+<style>
+.item-link {
+word-wrap: break-word;
+  white-space: normal;
+ }
+</style>
+
+<div class="recent-posts">
+  {{ if $recent }} {{ range $index, $page := $recent }}
+  <div class="recent-posts-item">
+    <h2 class="recent-post-title post-title">
+      <a href="{{ .RelPermalink }}" class="item-link">{{ .Title }}</a>
+    </h2>
+    <div class="summary">{{ .Summary }}</div>
+
+    {{ partial "post_meta.html" . }}
+
+  {{ if not (eq (add $index 1) (len $recent)) }} {{ end }} {{ end }} {{ else }}
+  <div class="recent-empty">暂无文章</div>
+  {{ end }}
+</div>
