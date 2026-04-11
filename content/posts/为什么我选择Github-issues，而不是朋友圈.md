@@ -1,9 +1,10 @@
 ---
 abbrlink: 3029910242
 categories:
-- 往昔
+- 随笔
 date: "2025-07-05 09:09:48"
 tags:
+- 黑历史
 - 社交
 title: 为什么我选择Github issues，而不是朋友圈
 ---

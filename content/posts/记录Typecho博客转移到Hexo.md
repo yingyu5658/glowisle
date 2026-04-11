@@ -1,13 +1,14 @@
 ---
 abbrlink: 64728457
 categories:
-- 往昔
+- 技术
 cid: 4
 date: "2025-03-03T15:40:00+08:00"
 layout: post
 slug: 4
 status: publish
 tags:
+- 黑历史
 - 博客
 title: 记录Typecho博客转移到Hexo
 ---

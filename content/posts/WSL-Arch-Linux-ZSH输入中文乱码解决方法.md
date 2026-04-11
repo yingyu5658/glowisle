@@ -1,10 +1,11 @@
 ---
 abbrlink: 570074617
 categories:
-- 往昔
+- 技术
 date: "2025-04-29 10:31:26"
 description: 乱码是由于没有安装字体造成的，安装字体即可
 tags:
+- 黑历史
 - Linux
 title: WSL Arch Linux ZSH输入中文输入法乱码解决方法
 ---

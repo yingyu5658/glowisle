@@ -1,9 +1,10 @@
 ---
 abbrlink: 1389132829
 categories:
-- 往昔
+- 技术
 date: "2025-06-21 14:19:36"
 tags:
+- 黑历史
 - Linux
 title: Tmux配置记录
 ---

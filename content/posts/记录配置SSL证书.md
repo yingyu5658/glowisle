@@ -6,7 +6,7 @@ ShowToc: show
 abbrlink: 1636322595
 author: yingyu5658
 categories:
-- 往昔
+- 技术
 cid: 163
 date: "2024-12-17 11:46:07"
 desc: null
@@ -17,6 +17,7 @@ slug: 163
 status: publish
 summaryContent: null
 tags:
+- 黑历史
 - 服务器
 thumb: null
 title: 记录配置SSL证书

@@ -1,9 +1,10 @@
 ---
 abbrlink: 24667834
 categories:
-- 往昔
+- 技术
 date: "2025-06-04 18:58:37"
 tags:
+- 黑历史
 - Emacs
 - Linux
 title: Emacs配置记录 2——C/C++环境配置

@@ -2,7 +2,7 @@
 abbrlink: 1642973481
 author: yingyu5658
 categories:
-- 往昔
+- 技术
 cid: 95
 cover: images\2024\12\2743265221.jpg
 customSummary: null
@@ -17,6 +17,7 @@ reprint: standard
 slug: 95
 status: publish
 tags:
+- 黑历史
 - Java
 thumb: null
 thumbChoice: default

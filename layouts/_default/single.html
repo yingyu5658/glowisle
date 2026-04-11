@@ -12,6 +12,24 @@
       <a href="{{ .RelPermalink }}" class="item-link">{{ .Title }}</a>
 </h1>
 
+<div class="post-meta">
+    <div class="post-meta-item post-date">
+        <time class="dt-published" datetime="{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}">
+            {{ .Date.Format "January 02, 2006" }}
+        </time>
+    </div>
+
+    <div class="post-meta-item post-category">
+
+        {{ range .Params.categories }}
+        {{ $url := printf "/categories/%s/" (. | urlize) }}
+•
+        <a href="{{ $url }}" class="category-link">{{ . }}</a>
+        {{ end }}
+    </div>
+</div>
+
+
   <div class="e-content">{{ .Content }}</div>
 </article>
 <a class="u-url" href="{{ .Permalink }}" style="display: none">Permalink</a>
@@ -127,9 +145,9 @@
 
 
 <!-- Place the TOC at the end to ensure the article content loads first. -->
-{{ $tocEnabled := default .Site.Params.toc .Params.toc }} {{ if $tocEnabled }}
-<div class="toc">{{ partial "toc.html" . }}</div>
-{{ end }}
+<!-- {{ $tocEnabled := default .Site.Params.toc .Params.toc }} {{ if $tocEnabled }} -->
+<!-- <div class="toc">{{ partial "toc.html" . }}</div> -->
+<!-- {{ end }} -->
 
 <!-- {{ if .Params.comments | default true }} -->
 <!-- <div class="comments-and-webmentions"> -->
@@ -308,5 +326,6 @@
   </div>
   {{ end }}
   {{ end }}
+  <p>有想对我说的？<a href="mailto:i@glowisle.me?subject=回复《{{ .Title }}》">发一封邮件吧</a>。</p>
 </div>
 {{ end }}

@@ -4,8 +4,9 @@ draft: true
 title: '写一个下载B站视频的小工具'
 slug: 'download-bilibili-video-with-golang'
 categories:
-  - 往昔
+  - 技术
 tags:
+  - 黑历史
   - Golang
 ---
 ## 前置条件

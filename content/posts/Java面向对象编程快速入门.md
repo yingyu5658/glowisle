@@ -2,7 +2,7 @@
 abbrlink: 1091767210
 author: yingyu5658
 categories:
-- 往昔
+- 技术
 cid: 98
 customSummary: null
 date: "2024-12-01 13:05:00"
@@ -16,6 +16,7 @@ reprint: standard
 slug: 98
 status: publish
 tags:
+- 黑历史
 - Java
 thumb: null
 thumbChoice: default

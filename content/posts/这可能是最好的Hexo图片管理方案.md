@@ -1,9 +1,10 @@
 ---
 abbrlink: 1950788762
 categories:
-- 往昔
+- 技术
 date: "2025-06-29 10:52:05"
 tags:
+- 黑历史
 - Hexo
 title: 这可能是最好的Hexo图片管理方案
 ---

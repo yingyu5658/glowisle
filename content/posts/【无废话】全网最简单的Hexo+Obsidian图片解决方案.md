@@ -1,9 +1,10 @@
 ---
 abbrlink: 1008281873
 categories:
-- 往昔
+- 技术
 date: "2025-03-05 21:17:42"
 tags:
+- 黑历史
 - Hexo
 - Obsidain
 - 博客

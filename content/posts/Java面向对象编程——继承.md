@@ -6,7 +6,7 @@ ShowToc: show
 abbrlink: 850254895
 author: yingyu5658
 categories:
-- 往昔
+- 技术
 cid: 185
 cover: images\2024\12\2743265221.jpg
 date: "2025-01-10 13:19:11"
@@ -18,6 +18,7 @@ slug: 185
 status: publish
 summaryContent: null
 tags:
+- 黑历史
 - Java
 thumb: null
 title: Java面向对象编程——继承

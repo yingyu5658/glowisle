@@ -6,7 +6,7 @@ ShowToc: show
 abbrlink: 2251989209
 author: yingyu5658
 categories:
-- 往昔
+- 技术
 cid: 186
 cover: images\2024\12\2743265221.jpg
 date: "2025-01-10 15:05:00"
@@ -19,6 +19,7 @@ status: publish
 summaryContent: null
 tags:
 - Java
+- 黑历史
 thumb: null
 title: Java面向对象编程——多态、抽象类、接口
 updated: 2025/01/10 15:06:08

@@ -1,9 +1,10 @@
 ---
 abbrlink: 1126783921
 categories:
-- 往昔
+- 技术
 date: "2025-07-04 10:46:53"
 tags:
+- 黑历史
 - 翻译
 - JavaScript
 title: 使用Javascript TSS和Highlights构建一个文本阅读器

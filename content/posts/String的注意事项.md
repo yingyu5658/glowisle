@@ -6,7 +6,7 @@ ShowToc: show
 abbrlink: 1413738899
 author: yingyu5658
 categories:
-- 往昔
+- 技术
 cid: 171
 cover: images\2024\12\2743265221.jpg
 date: "2024-12-19 22:28:15"
@@ -18,6 +18,7 @@ slug: 171
 status: publish
 summaryContent: null
 tags:
+- 黑历史
 - Java
 thumb: null
 title: String的注意事项

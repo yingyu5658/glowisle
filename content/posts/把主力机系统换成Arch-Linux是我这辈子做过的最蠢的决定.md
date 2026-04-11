@@ -1,9 +1,10 @@
 ---
 abbrlink: 4108562128
 categories:
-- 往昔
+- 技术
 date: "2025-04-06 17:58:48"
 tags:
+- 黑历史
 - Arch
 - Linux
 title: 把主力机系统换成Arch Linux是我这辈子做过的最蠢的决定

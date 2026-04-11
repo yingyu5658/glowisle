@@ -1,9 +1,10 @@
 ---
 abbrlink: 3824334627
 categories:
-- 往昔
+- 技术
 date: "2025-06-13 20:11:49"
 tags:
+- 黑历史
 - Linux
 - Fedora
 title: 给比我岁数还大的电脑装Fedora

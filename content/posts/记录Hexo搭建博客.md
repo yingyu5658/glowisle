@@ -2,7 +2,7 @@
 abbrlink: 3093271062
 author: yingyu5658
 categories:
-  - 往昔
+  - 技术
 cid: 130
 customSummary:
 date: 2024-12-07 23:40:00
@@ -16,6 +16,7 @@ reprint: standard
 slug: 130
 status: publish
 tags:
+  - 黑历史
   - Hexo
   - 博客
 thumb:

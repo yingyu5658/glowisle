@@ -24,6 +24,13 @@ unsafe = true
   title = true
   wrapStandAloneImageWithinParagraph = false
 
+
+[markup]
+  [markup.tableOfContents]
+    startLevel = 2    # 起始级别
+    endLevel = 3      # 结束级别
+    ordered = false   # 是否使用有序列表
+
 [markup.goldmark.extensions]
   [markup.goldmark.extensions.extras]
     [markup.goldmark.extensions.extras.mark]
@@ -90,12 +97,12 @@ tabWidth = 4
         url = "/about/"
         weight = 6
 [params]
-	upvote = true
+	upvote = false
     upvoteURL = "https://upvote.glowisle.me/"
 	description = "关于互联网、书籍、生活琐事以及那些一闪而过的念头。计算机技术 & 读书感悟 & 日常随笔。映屿(GlowIsle)"
 	postSearch = false
 	groupByYear = true
-	toc = false
+	toc = true 
 	showPostCount = true
 	favicon = "/favicon.png"
     hideMadeWithLine = true
@@ -106,4 +113,4 @@ tabWidth = 4
     email = "i@glowisle.me"
 
   [params.footer]
-    content = "© 2024 - 2026 | Made with ❤️ by Verdant."
+    content = "© 2024 - 2026 | Made with ❤️ by [Verdant](https://verdant.ee)."

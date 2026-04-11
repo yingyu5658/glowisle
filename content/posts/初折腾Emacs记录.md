@@ -1,9 +1,10 @@
 ---
 abbrlink: 2193909713
 categories:
-- 往昔
+- 技术
 date: "2025-04-13 12:15:33"
 tags:
+- 黑历史
 - Emacs
 title: 初折腾Emacs记录
 ---

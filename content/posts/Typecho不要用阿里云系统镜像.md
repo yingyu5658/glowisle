@@ -2,7 +2,7 @@
 abbrlink: 3097784315
 author: yingyu5658
 categories:
-- 往昔
+- 技术
 cid: 156
 customSummary: null
 date: "2024-12-15 21:45:47"
@@ -16,6 +16,7 @@ reprint: standard
 slug: 156
 status: publish
 tags:
+- 黑历史
 - Typecho
 - 阿里云
 thumb: null

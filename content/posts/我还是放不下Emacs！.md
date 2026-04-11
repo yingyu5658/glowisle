@@ -1,9 +1,10 @@
 ---
 abbrlink: 393175956
 categories:
-- 往昔
+- 技术
 date: "2025-06-03 20:07:15"
 tags:
+- 黑历史
 - Emacs
 - GNU
 - Linux

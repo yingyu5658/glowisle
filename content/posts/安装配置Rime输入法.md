@@ -1,9 +1,10 @@
 ---
 abbrlink: 2682509886
 categories:
-- 往昔
+- 技术
 date: "2025-03-24 20:37:38"
 tags:
+- 黑历史
 - Linux
 title: 安装配置Rime输入法
 ---

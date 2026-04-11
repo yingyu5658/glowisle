@@ -2,7 +2,7 @@
 abbrlink: 2074174141
 author: yingyu5658
 categories:
-- 往昔
+- 技术
 cid: 147
 cover: ../../images/2024/12/4041053621.jpg
 customSummary: null
@@ -17,6 +17,7 @@ reprint: standard
 slug: 147
 status: publish
 tags:
+- 黑历史
 - Vim
 thumb: null
 thumbChoice: default

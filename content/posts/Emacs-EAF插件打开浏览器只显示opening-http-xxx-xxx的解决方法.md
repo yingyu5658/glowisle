@@ -1,9 +1,10 @@
 ---
 abbrlink: 717508352
 categories:
-- 往昔
+- 技术
 date: "2025-04-29 10:02:49"
 tags:
+- 黑历史
 - Emacs
 - Linux
 title: Emacs EAF插件打开浏览器只显示opening http://xxx.xxx的解决方法

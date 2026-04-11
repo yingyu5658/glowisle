@@ -1,33 +1,12 @@
 {{ if ne (.Params.showMeta | default true) false }}
 <div class="post-meta">
-
-    <div class="post-meta-item post-date">
-        <time class="dt-published" datetime="{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}">
-            {{ .Date.Format "January 02, 2006" }}
-        </time>
-    </div>
-
-    <div class="post-meta-item post-category">
-
-        {{ range .Params.categories }}
-        {{ $url := printf "/categories/%s/" (. | urlize) }}
-•
-        <a href="{{ $url }}" class="category-link">{{ . }}</a>
-        {{ end }}
-    </div>
-
-    {{ if eq .Kind "page" }}
-    <div class="post-meta-item post-tag">
-      #
-        {{ $tags := .GetTerms "tags" }}
-        {{ $len := len $tags }}
-        {{ range $index, $tag := $tags }}
-        <a href="{{ .Permalink }}">{{ $tag.LinkTitle }}</a>
-        {{ if lt (add $index 1) $len }}, {{ end }}
-        {{ end }}
-    </div>
-    {{ end }}
+	{{ if eq .Kind "page" }}
+	<div class="post-meta-item post-tag">
+		# {{ $tags := .GetTerms "tags" }} {{ $len := len $tags }} {{ range $index,
+		$tag := $tags }}
+		<a href="{{ .Permalink }}">{{ $tag.LinkTitle }}</a>
+		{{ if lt (add $index 1) $len }}, {{ end }} {{ end }}
+	</div>
+	{{ end }}
 </div>
 {{ end }}
-
-

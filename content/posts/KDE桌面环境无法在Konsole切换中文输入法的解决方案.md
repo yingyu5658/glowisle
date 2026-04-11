@@ -1,9 +1,10 @@
 ---
 abbrlink: 3134572074
 categories:
-- 往昔
+- 技术
 date: "2025-03-08 22:07:58"
 tags:
+- 黑历史
 - Linux
 title: KDE桌面环境无法在Konsole切换中文输入法的解决方案
 ---

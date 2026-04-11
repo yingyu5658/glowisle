@@ -1,10 +1,10 @@
 ---
 abbrlink: 472869193
 categories:
-- 往昔
+- 技术
 date: "2025-05-31T09:07:36+08:00"
 tags:
-- 前端
+- 黑历史
 - Electron
 title: Electron CommonJS require踩坑
 ---

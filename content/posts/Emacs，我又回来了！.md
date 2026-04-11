@@ -4,8 +4,9 @@ draft: false
 title: 'Emacs，我又回来了！'
 slug: 'emacs-i-am-back'
 categories:
-  - 往昔
+  - 技术
 tags:
+  - 黑历史
   - Emacs
   - GNU/Linux
 ---

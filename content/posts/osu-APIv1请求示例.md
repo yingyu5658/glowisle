@@ -1,9 +1,10 @@
 ---
 abbrlink: 3260068752
 categories:
-- 往昔
+- 技术
 date: "2025-04-11 22:29:23"
 tags:
+- 黑历史
 - JavaScript
 - NodeJS
 title: osu!APIv1请求示例

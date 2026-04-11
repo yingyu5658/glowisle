@@ -1,9 +1,10 @@
 ---
 abbrlink: 1348465439
 categories:
-- 往昔
+- 技术
 date: "2025-03-04 20:58:30"
 tags:
+- 黑历史
 - Windows
 - Linux
 title: '【未解决】Windows WSL报错：Error: 0x80080005 ???????'

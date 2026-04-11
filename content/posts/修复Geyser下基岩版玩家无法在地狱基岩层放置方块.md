@@ -6,7 +6,7 @@ ShowToc: show
 abbrlink: 1177643335
 author: yingyu5658
 categories:
-- 往昔
+- 技术
 cid: 184
 cover: images/1203260069.jpg
 date: "2025-01-08 17:26:00"
@@ -18,6 +18,7 @@ slug: 184
 status: publish
 summaryContent: null
 tags:
+- 黑历史
 - Java
 - 服务器
 - Minecraft

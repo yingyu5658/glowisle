@@ -1,9 +1,10 @@
 ---
 abbrlink: 955127510
 categories:
-- 往昔
+- 技术
 date: "2025-04-23 21:54:03"
 tags:
+- 黑历史
 - 博客
 title: Valine评论系统踩坑记录
 ---

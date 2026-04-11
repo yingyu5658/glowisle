@@ -1,10 +1,10 @@
 ---
 abbrlink: 2218331126
 categories:
-- 往昔
+- 技术
 date: "2025-03-09 12:41:10"
 tags:
-- Linux
+- 黑历史
 title: Kitty终端美化记录
 ---
 
