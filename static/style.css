@@ -1,33 +1,84 @@
+/* :root { */
+/*     --width-max: 720px; */
+/*     --font-secondary: monospace; */
+/*     --font-size-primary: 1.06rem; */
+/*     --font-size-secondary: 1.03rem; */
+/*     --body-bg-color: white; */
+/*     --bold-text-color: black; */
+/*     --body-text-color: #444; */
+/*     --link-color: #0355a6; */
+/*     --link-visited-color: #551a8b; */
+/*     --table-border-color: #f2f2f2; */
+/*     --table-th-bg-color: #f2f2f2; */
+/*     --img-border-color: #f2f2f2; */
+/*     --code-bg-color: #f2f2f2; */
+/*     --code-text-color: #222; */
+/*     --blockquote-border-color: #666; */
+/*     --blockquote-text-color: gray; */
+/*     --upvoted-color: #fa8072; */
+/*     --caption-text-color: #666; */
+/*     --toc-text-color: #e5e5e5; */
+/*     --toc-hover-color: e5e5e5; */
+/*     --music-bg-hover-light: #e5e5e5; */
+/*     --music-bg-light: rgba(229, 229, 229, 0.5); */
+/*     --music-text-secondary: #666; */
+/*     --music-shadow: */
+/*         0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); */
+/*     --summary-text-color: #706c6c; */
+/*     --svg-size: 0.85em; */
+/*     --title-color: #55555; */
+/* } */
+
 :root {
     --width-max: 720px;
-    --font-secondary: monospace;
+    --font-secondary: "Georgia", "Noto Serif", "Times New Roman", serif;
     --font-size-primary: 1.06rem;
     --font-size-secondary: 1.03rem;
-    --body-bg-color: white;
-    --bold-text-color: black;
-    --body-text-color: #444;
-    --link-color: #0355a6;
-    --link-visited-color: #551a8b;
-    --table-border-color: #f2f2f2;
-    --table-th-bg-color: #f2f2f2;
-    --img-border-color: #f2f2f2;
-    --code-bg-color: #f2f2f2;
-    --code-text-color: #222;
-    --blockquote-border-color: #666;
-    --blockquote-text-color: gray;
-    --upvoted-color: #fa8072;
-    --caption-text-color: #666;
-    --toc-text-color: #e5e5e5;
-    --toc-hover-color: e5e5e5;
-    --music-bg-hover-light: #e5e5e5;
-    --music-bg-light: rgba(229, 229, 229, 0.5);
-    --music-text-secondary: #666;
+
+    /* ── 纸基底色 ── */
+    --body-bg-color: #fbf8f2;            /* 暖白底，模拟微黄纸张 */
+    --bold-text-color: #1e1e1e;          /* 加粗接近黑，但不刺眼 */
+    --body-text-color: #3d3a35;          /* 深褐灰，长文阅读不累 */
+
+    /* ── 链接 ── */
+    --link-color: #03539e;               /* 保留一点蓝，与纸本笔记的钢笔墨水呼应 */
+    --link-visited-color: #5e4684;       /* 降低过亮紫，更像被翻过的印记 */
+
+    /* ── 表格 & 图片 & 代码 ── */
+    --table-border-color: #e6dfd1;       /* 浅亚麻色边框 */
+    --table-th-bg-color: #f3efe6;        /* 表头微暖灰，不用惨白 */
+    --img-border-color: #e6dfd1;
+    --code-bg-color: #f4efe4;             /* 淡奶茶色背景，像便笺纸 */
+    --code-text-color: #362c21;           /* 深棕，弱于纯黑 */
+
+    /* ── 引用块 ── */
+    --blockquote-border-color: #c0b6a4;   /* 柔和灰色边框，有铅笔描边的感觉 */
+    --blockquote-text-color: #5e5a52;     /* 引用文字略淡，但依然温润 */
+
+    /* ── 交互 / 状态 ── */
+    --upvoted-color: #c47062;             /* 暖 salmon，不影响阅读节奏 */
+
+    /* ── 辅助文字 ── */
+    --caption-text-color: #7d7870;
+    --summary-text-color: #6b6660;
+
+    /* ── 目录 / 音乐控件 ── */
+    --toc-text-color: #d7cebc;
+    --toc-hover-color: #b7aa8f;
+    --music-bg-hover-light: #ede4d4;
+    --music-bg-light: rgba(237, 228, 212, 0.5);
+    --music-text-secondary: #7d7870;
+
     --music-shadow:
-        0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-    --summary-text-color: #706c6c;
+        0 10px 15px -3px rgba(80, 70, 50, 0.08),
+        0 4px 6px -2px rgba(80, 70, 50, 0.04);
+
+    /* ── 标题 & 图标 ── */
+    --title-color: #4d4840;
     --svg-size: 0.85em;
-    --title-color: #55555;
 }
+
+
 
 p {
     font-size: var(--font-size-primary);
@@ -618,99 +669,99 @@ ul li:has(input) {
     margin-left: -25.5px;
 }
 
-@media (prefers-color-scheme: dark) {
-    :root {
-        --body-text-color: #bbb;
-        --title-color: #aaa;
+/* @media (prefers-color-scheme: dark) { */
+/*     :root { */
+/*         --body-text-color: #bbb; */
+/*         --title-color: #aaa; */
 
-        --body-bg-color: #0f0f0f;
-        --summary-text-color: #a8a8a8;
-        --bold-text-color: #ffffff;
-        --text-color-tertiary: #bbb;
+/*         --body-bg-color: #0f0f0f; */
+/*         --summary-text-color: #a8a8a8; */
+/*         --bold-text-color: #ffffff; */
+/*         --text-color-tertiary: #bbb; */
 
-        --link-color: #5cc2ff;
-        --link-visited-color: #9d7eff;
+/*         --link-color: #5cc2ff; */
+/*         --link-visited-color: #9d7eff; */
 
-        --code-bg-color: #1a1a1a;
-        --code-text-color: #d4d4d4;
-        --blockquote-border-color: #555555;
-        --blockquote-text-color: #bbbbbb;
+/*         --code-bg-color: #1a1a1a; */
+/*         --code-text-color: #d4d4d4; */
+/*         --blockquote-border-color: #555555; */
+/*         --blockquote-text-color: #bbbbbb; */
 
-        --table-border-color: #444444;
-        --table-th-bg-color: #1f1f1f;
+/*         --table-border-color: #444444; */
+/*         --table-th-bg-color: #1f1f1f; */
 
-        --img-border-color: #444444;
-        --toc-text-color: #aaaaaa;
-        --toc-hover-color: #5cc2ff;
-        --summary-text-color: #878686;
-        --color-background: var(--body-bg-color) !important;
-    }
+/*         --img-border-color: #444444; */
+/*         --toc-text-color: #aaaaaa; */
+/*         --toc-hover-color: #5cc2ff; */
+/*         --summary-text-color: #878686; */
+/*         --color-background: var(--body-bg-color) !important; */
+/*     } */
 
-    a {
-        color: var(--link-color);
-        cursor: pointer;
-    }
+/*     a { */
+/*         color: var(--link-color); */
+/*         cursor: pointer; */
+/*     } */
 
-    h3.recent-post-title a {
-        color: var(--body-text-color);
-    }
+/*     h3.recent-post-title a { */
+/*         color: var(--body-text-color); */
+/*     } */
 
-    .post-meta-item svg {
-        filter: invert(1) hue-rotate(180deg);
-    }
+/*     .post-meta-item svg { */
+/*         filter: invert(1) hue-rotate(180deg); */
+/*     } */
 
-    strong {
-        /* font-weight: 650; */
-    }
+/*     strong { */
+/*         /\* font-weight: 650; *\/ */
+/*     } */
 
-    .music-btn {
-        background-color: var(--music-bg-dark);
-    }
-    .music-btn:hover {
-        background-color: var(--music-bg-hover-dark);
-    }
+/*     .music-btn { */
+/*         background-color: var(--music-bg-dark); */
+/*     } */
+/*     .music-btn:hover { */
+/*         background-color: var(--music-bg-hover-dark); */
+/*     } */
 
-    .category-link {
-        color: #dbdbdb;
-    }
+/*     .category-link { */
+/*         color: #dbdbdb; */
+/*     } */
 
-    .wm {
-        background-color: #161b22;
-        border-color: #30363d;
-        color: var(--body-text-color);
-        padding: 10px;
-    }
+/*     .wm { */
+/*         background-color: #161b22; */
+/*         border-color: #30363d; */
+/*         color: var(--body-text-color); */
+/*         padding: 10px; */
+/*     } */
 
-    .wm input {
-        background-color: #010409;
-        border: #30363d 1px solid;
-        color: var(--body-text-color);
-        outline: none;
-    }
+/*     .wm input { */
+/*         background-color: #010409; */
+/*         border: #30363d 1px solid; */
+/*         color: var(--body-text-color); */
+/*         outline: none; */
+/*     } */
 
-    #webmention-source:focus {
-        border-color: var(--color-accent-fg, #0969da);
-        box-shadow: 0 0 0 3px rgba(9, 105, 218, 0.1);
-    }
+/*     #webmention-source:focus { */
+/*         border-color: var(--color-accent-fg, #0969da); */
+/*         box-shadow: 0 0 0 3px rgba(9, 105, 218, 0.1); */
+/*     } */
 
-    .wm button {
-        color: var(--body-text-color);
-        background-color: #161b22;
-        border: #30363d 1px solid;
-    }
+/*     .wm button { */
+/*         color: var(--body-text-color); */
+/*         background-color: #161b22; */
+/*         border: #30363d 1px solid; */
+/*     } */
 
-    .post-summary {
-        color: var(--text-color-primary) !important;
-    }
+/*     .post-summary { */
+/*         color: var(--text-color-primary) !important; */
+/*     } */
 
-    .post-item {
-        border-bottom: 1px solid #414141 !important;
-    }
+/*     .post-item { */
+/*         border-bottom: 1px solid #414141 !important; */
+/*     } */
 
-    .pagination-link {
-        border: 1px solid #414141 !important;
-    }
-}
+/*     .pagination-link { */
+/*         border: 1px solid #414141 !important; */
+/*     } */
+/* } */
 
 @media (min-width: 768px) {
     .music-card {
