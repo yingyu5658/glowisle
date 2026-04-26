@@ -1,68 +1,27 @@
-/* :root { */
-/*     --width-max: 720px; */
-/*     --font-secondary: monospace; */
-/*     --font-size-primary: 1.06rem; */
-/*     --font-size-secondary: 1.03rem; */
-/*     --body-bg-color: white; */
-/*     --bold-text-color: black; */
-/*     --body-text-color: #444; */
-/*     --link-color: #0355a6; */
-/*     --link-visited-color: #551a8b; */
-/*     --table-border-color: #f2f2f2; */
-/*     --table-th-bg-color: #f2f2f2; */
-/*     --img-border-color: #f2f2f2; */
-/*     --code-bg-color: #f2f2f2; */
-/*     --code-text-color: #222; */
-/*     --blockquote-border-color: #666; */
-/*     --blockquote-text-color: gray; */
-/*     --upvoted-color: #fa8072; */
-/*     --caption-text-color: #666; */
-/*     --toc-text-color: #e5e5e5; */
-/*     --toc-hover-color: e5e5e5; */
-/*     --music-bg-hover-light: #e5e5e5; */
-/*     --music-bg-light: rgba(229, 229, 229, 0.5); */
-/*     --music-text-secondary: #666; */
-/*     --music-shadow: */
-/*         0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); */
-/*     --summary-text-color: #706c6c; */
-/*     --svg-size: 0.85em; */
-/*     --title-color: #55555; */
-/* } */
-
 :root {
-    --width-max: 720px;
+    --width-max: 730px;
     --font-secondary: "Georgia", "Noto Serif", "Times New Roman", serif;
-    --font-size-primary: 1.06rem;
-    --font-size-secondary: 1.03rem;
+    --font-size-primary: 1.08rem;
+    --font-size-secondary: 1.05rem;
 
-    /* ── 纸基底色 ── */
-    --body-bg-color: #fbf8f2;            /* 暖白底，模拟微黄纸张 */
-    --bold-text-color: #1e1e1e;          /* 加粗接近黑，但不刺眼 */
-    --body-text-color: #3d3a35;          /* 深褐灰，长文阅读不累 */
+    --body-bg-color: #fbf8f2;
+    --bold-text-color: #1e1e1e;
+    --body-text-color: #3d3a35;
 
-    /* ── 链接 ── */
-    --link-color: #03539e;               /* 保留一点蓝，与纸本笔记的钢笔墨水呼应 */
-    --link-visited-color: #5e4684;       /* 降低过亮紫，更像被翻过的印记 */
+    --link-color: #03539e;
+    --link-visited-color: #5e4684;
 
-    /* ── 表格 & 图片 & 代码 ── */
-    --table-border-color: #e6dfd1;       /* 浅亚麻色边框 */
-    --table-th-bg-color: #f3efe6;        /* 表头微暖灰，不用惨白 */
+    --table-border-color: #e6dfd1;
+    --table-th-bg-color: #f3efe6;
     --img-border-color: #e6dfd1;
-    --code-bg-color: #f4efe4;             /* 淡奶茶色背景，像便笺纸 */
-    --code-text-color: #362c21;           /* 深棕，弱于纯黑 */
+    --code-bg-color: #f4efe4;
+    --code-text-color: #362c21;
+    --blockquote-border-color: #c0b6a4;
+    --blockquote-text-color: #5e5a52;
 
-    /* ── 引用块 ── */
-    --blockquote-border-color: #c0b6a4;   /* 柔和灰色边框，有铅笔描边的感觉 */
-    --blockquote-text-color: #5e5a52;     /* 引用文字略淡，但依然温润 */
-
-    /* ── 交互 / 状态 ── */
-    --upvoted-color: #c47062;             /* 暖 salmon，不影响阅读节奏 */
-
-    /* ── 辅助文字 ── */
+    --upvoted-color: #c47062;
     --caption-text-color: #7d7870;
     --summary-text-color: #6b6660;
-
-    /* ── 目录 / 音乐控件 ── */
     --toc-text-color: #d7cebc;
     --toc-hover-color: #b7aa8f;
     --music-bg-hover-light: #ede4d4;
@@ -104,14 +63,6 @@ summary p {
 
 :is(article, .summary) p:not(.music-card *) {
     margin-top: 1.6rem;
-}
-
-.e-content h2,
-.e-content h3,
-.e-content h4,
-.e-content h5,
-.e-content h6 {
-    /* font-weight: 800; */
 }
 
 gnu {
